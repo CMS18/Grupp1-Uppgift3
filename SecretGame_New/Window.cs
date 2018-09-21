@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class Exit 
+    class Window : Exit
     {
-        public List<Door> Exit1 { get; set; } // tre versioner av varje dörr. 
-        
     }
 }
