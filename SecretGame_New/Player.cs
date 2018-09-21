@@ -18,5 +18,31 @@ namespace SecretGame_New
         {
             throw new NotImplementedException();
         }
+        public int Grab(/*presentLocation, item (userInput)*/)
+        {
+            throw new NotImplementedException();
+        }
+        public int Drop(/*presentLocation, item (userInput)*/)
+        {
+            throw new NotImplementedException();
+        }
+        public int Use(/*presentLocation, item (userInput), item2 (userInput)*/)
+        {
+            throw new NotImplementedException();
+        }
+        public int Open(/*presentLocation, exit (userInput)*/)
+        {
+            throw new NotImplementedException();
+        }
+        public int Look(/*presentLocation*/)
+        {
+            //kontrollerar rummets föremål, visa aktuell beskrivning
+            throw new NotImplementedException();
+        }
+        public int Inspect(/*presentLocation, item (userInput)*/)
+        {
+            //Visa föremålets text
+            throw new NotImplementedException();
+        }
     }
 }
