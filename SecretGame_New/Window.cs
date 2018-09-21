@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class Window : Exit
+    class Window
     {
     }
 }

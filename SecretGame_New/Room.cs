@@ -11,11 +11,22 @@ namespace SecretGame_New
         public List<Item> RoomInventory { get; set; }
         public string RoomName { get; set; }
         public string RoomDescription { get; set; }
-        public List<Exit> ListOfExits { get; set; }
+        public List<Door> ListOfDoors { get; set; }
+        public int RoomId { get; set; }
 
-        public Room(string name)
+        public Room(string name, int roomId)
         {
-            RoomName = name; 
+            RoomName = name;
+            RoomId = roomId;
+            RoomInventory = new List<Item>() { };
+            ListOfDoors = new List<Door>() { };
+        }
+        public Room(string name, int roomId, Item item, Door exit)
+        {
+            RoomName = name;
+            RoomId = roomId;
+            RoomInventory = new List<Item>() { item };
+            ListOfDoors = new List<Door>() { exit };
         }
 
         public void PrintDescription()

@@ -12,18 +12,22 @@ namespace SecretGame_New
         public WorldCreator()
 
         {
-            Room roomA = new Room("Room A");
-            Room roomB = new Room("Room B");
+            Room roomA = new Room("Room A", 0);
+            Room roomB = new Room("Room B", 1);
 
-            Door doorA = new Door(roomB, false,"Door A");
+            Door doorA = new Door(roomB, false, "Door A");
 
-            List<Item> RoomAInventory = new List<Item>() { };  // skicka in formole lista 
+            Item item0 = new Item(0, "Key");
+
+            roomA.ListOfDoors.Add((doorA));
 
            
+            //  List<Room> ListOfRooms = new List<Room>() { roomA, roomB };
 
-        }
 
-       
-        
+         }
+
+
+
     }
 }

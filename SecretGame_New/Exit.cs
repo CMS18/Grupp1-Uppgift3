@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class Exit 
+    public class Exit 
     {
         public List<string> Direction { get; set; }
 
-        public List<Door> Exit1 { get; set; } // tre versioner av varje dörr. 
+        public List<Exit> Exit1 { get; set; } // tre versioner av varje dörr. 
         
     }
 }

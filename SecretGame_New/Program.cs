@@ -10,7 +10,7 @@ namespace SecretGame_New
     {
         static void Main(string[] args)
         {
-             
+            WorldCreator gameBuilder = new WorldCreator();
         }
     }
 }
