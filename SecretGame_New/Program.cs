@@ -10,8 +10,7 @@ namespace SecretGame_New
     {
         static void Main(string[] args)
         {
-             Room roomA = new Room("Room A");
-             Room roomB = new Room("Room B");
+             
         }
     }
 }

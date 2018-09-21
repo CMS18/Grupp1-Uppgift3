@@ -8,5 +8,17 @@ namespace SecretGame_New
 {
     class Item
     {
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+
+        public int UseItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Inspect()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

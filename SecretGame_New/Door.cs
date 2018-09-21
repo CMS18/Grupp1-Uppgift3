@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    public class Door //:Room
+    public class Door 
     {
-       // public string Name { get; set; }
-        public int LeadsTo { get; set; }
-        public List<string> Direction { get; set; }
-        public int Status { get; set; } //open,closed,locked.
+        public string DoorName { get; set; }
+        public Room LeadsTo { get; set; }
+        
+        public bool Locked { get; set; } //open,closed,locked.
 
-        public Door(int leadsTO, int status)
-        {
+        public Door(Room leadsTO, bool locked , string doorname )
             
-            leadsTO = Room.RoomName;
+        {
+            DoorName = doorname;
+            LeadsTo = leadsTO;
+            Locked = locked;
+
         }
     }
 }
