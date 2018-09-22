@@ -11,6 +11,10 @@ namespace SecretGame_New
         static void Main(string[] args)
         {
             WorldCreator gameBuilder = new WorldCreator();
+
+            //var player = gameBuilder.Initialize();
+
+            //player. sköta kommunikationen med spelaren.
         }
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
@@ -17,7 +14,7 @@ namespace SecretGame_New
         //constructor
         public Player(string name, string description, Room room, bool alive)
         {
-            PlayerName = name;
+            PlayerName = name; 
             PlayerDescription = description;
             PresentLocation = room;
             Alive = alive;
@@ -38,7 +35,7 @@ namespace SecretGame_New
 
         ////Ellen writes: Below I am trying to create method to move player
 
-         public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
+         public Room Move( string direction, List<Room> listofrooms) //direction is UserInput // tagit bort presentLocation då den finns i klassen...
         {
             if (direction == "East")//cannot reach ListOfRooms from here - why?!)
             {
@@ -48,7 +45,7 @@ namespace SecretGame_New
 
                     return this.PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
             }
-            else if (direction == "West")
+            else if (direction != "East")
             {
                 int index = -1;
                 PresentLocation = listofrooms[index]; // förstår inte varför inte roomB skrivs ut istället för insansnamnet secret game new room??

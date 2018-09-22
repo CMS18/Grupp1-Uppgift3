@@ -12,7 +12,7 @@ namespace SecretGame_New
 
         public World(Room room)
         {
-         ListOfRooms = new List<Room>() { room };
+         ListOfRooms = new List<Room>() { room }; // skippa world?
         }
     }
 }
