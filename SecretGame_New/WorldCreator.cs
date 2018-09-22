@@ -23,15 +23,17 @@ namespace SecretGame_New
             roomA.ListOfDoors.Add((doorA));
             roomA.RoomInventory.Add((item0));
             myWorld.ListOfRooms.Add((roomB));
+            
+            
            
 
 
             Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
 
-
+            myPlayer.Move(myPlayer.PresentLocation, "East", myWorld.ListOfRooms);
 
         }
-
+        
 
 
     }

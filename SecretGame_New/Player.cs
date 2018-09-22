@@ -33,25 +33,27 @@ namespace SecretGame_New
             Alive = alive;
             PlayerBag = new List<Item>() { item };
         }
-    
+
         ////  List<Room> ListOfRooms = new List<Room>() { roomA, roomB };
 
         ////Ellen writes: Below I am trying to create method to move player
 
-        //public Room Move(Room room, string direction) //direction is UserInput
-        //{
-        //    if (direction == "East")//cannot reach ListOfRooms from here - why?!)
-        //    {
-        //        PresentLocation = ??  //Here I want to set PresentLocation to RoomB instead
-            
-        //            return room;            //Can we use the keyword "this." here, to reach current room? 
-        //    }
-        //    else
-        //    {
-        //        return PresentLocation;
-        //    }
+        public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
+        {
+            if (direction == "East")//cannot reach ListOfRooms from here - why?!)
+            {
+                int index= + 1; 
+                PresentLocation = listofrooms[index];  //Room should now be roomB//Here I want to set PresentLocation to RoomB instead
 
-        //}
+
+                    return PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
+            }
+            else
+            {
+                return PresentLocation;
+            }
+
+        }
 
         public int Grab(/*presentLocation, item (userInput)*/)
         {

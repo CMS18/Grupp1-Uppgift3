@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class Game
+    public class Game
     {
+        
     }
 }
