@@ -34,26 +34,34 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { item };
         }
 
-        public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
+        public Room Move(Room presentlocation, string direction, List<Room> listofrooms, bool locked) //direction is UserInput
         {
-            if (direction == "East")
+            if (locked == true)
             {
-                int i = listofrooms.IndexOf(presentlocation);
-                this.PresentLocation = listofrooms[i + 1]; 
-
-                return this.PresentLocation; 
-            }
-            else if (direction == "West")
-            {
-                int i = listofrooms.IndexOf(presentlocation);
-                PresentLocation = listofrooms[i - 1];
-
-                return this.PresentLocation;
+                Console.WriteLine("You need a key to open this door. Look around in the room.");
+                return PresentLocation;
             }
             else
             {
-                return this.PresentLocation;
-            }
+                if (direction == "East")
+                {
+                    int i = listofrooms.IndexOf(presentlocation);
+                    PresentLocation = listofrooms[i + 1];
+
+                    return PresentLocation;
+                }
+                else if (direction == "West")
+                {
+                    int i = listofrooms.IndexOf(presentlocation);
+                    PresentLocation = listofrooms[i - 1];
+
+                    return PresentLocation;
+                }
+                else
+                {
+                    return PresentLocation;
+                }
+            } 
 
         }
 
