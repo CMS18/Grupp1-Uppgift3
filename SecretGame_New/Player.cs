@@ -42,13 +42,17 @@ namespace SecretGame_New
         {
             if (direction == "East")//cannot reach ListOfRooms from here - why?!)
             {
-                int index= + 1; 
+                int index= +1;
                 PresentLocation = listofrooms[index];  //Room should now be roomB//Here I want to set PresentLocation to RoomB instead
 
 
                     return PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
             }
-            else
+            else if (direction == "West")
+            {
+                int index = -1;
+                PresentLocation = listofrooms[index];
+            }
             {
                 return PresentLocation;
             }
