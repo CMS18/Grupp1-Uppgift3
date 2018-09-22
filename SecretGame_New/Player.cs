@@ -14,7 +14,7 @@ namespace SecretGame_New
         public Room PresentLocation { get; set; }
         public bool Alive { get; set; }
 
-        //constructor
+        //constructor 1
         public Player(string name, string description, Room room, bool alive)
         {
             PlayerName = name;
@@ -34,24 +34,19 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { item };
         }
 
-        ////  List<Room> ListOfRooms = new List<Room>() { roomA, roomB };
-
-        ////Ellen writes: Below I am trying to create method to move player
-
-         public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
+        public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
         {
-            if (direction == "East")//cannot reach ListOfRooms from here - why?!)
+            if (direction == "East")
             {
-                int index= + 1; 
-                this.PresentLocation = listofrooms[index];  //Room should now be roomB//Here I want to set PresentLocation to RoomB instead
+                int i = listofrooms.IndexOf(presentlocation);
+                this.PresentLocation = listofrooms[i + 1]; 
 
-
-                    return this.PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
+                return this.PresentLocation; 
             }
             else if (direction == "West")
             {
-                int index = -1;
-                PresentLocation = listofrooms[index]; // förstår inte varför inte roomB skrivs ut istället för insansnamnet secret game new room??
+                int i = listofrooms.IndexOf(presentlocation);
+                PresentLocation = listofrooms[i - 1];
 
                 return this.PresentLocation;
             }

@@ -38,6 +38,8 @@ namespace SecretGame_New
             Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
 
             myPlayer.Move(myPlayer.PresentLocation, "East", myWorld.ListOfRooms);
+            myPlayer.Move(myPlayer.PresentLocation, "West", myWorld.ListOfRooms);
+
 
             Console.WriteLine(myPlayer.PresentLocation.RoomName.ToString());
 
