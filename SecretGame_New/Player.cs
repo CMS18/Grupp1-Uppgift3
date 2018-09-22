@@ -38,7 +38,7 @@ namespace SecretGame_New
 
         ////Ellen writes: Below I am trying to create method to move player
 
-        public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
+         public Room Move(Room presentlocation, string direction, List<Room> listofrooms) //direction is UserInput
         {
             if (direction == "East")//cannot reach ListOfRooms from here - why?!)
             {
@@ -47,6 +47,13 @@ namespace SecretGame_New
 
 
                     return this.PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
+            }
+            else if (direction == "West")
+            {
+                int index = -1;
+                PresentLocation = listofrooms[index]; // förstår inte varför inte roomB skrivs ut istället för insansnamnet secret game new room??
+
+                return this.PresentLocation;
             }
             else
             {

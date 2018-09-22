@@ -39,7 +39,7 @@ namespace SecretGame_New
 
             myPlayer.Move(myPlayer.PresentLocation, "East", myWorld.ListOfRooms);
 
-            Console.WriteLine(myPlayer.PresentLocation);
+            Console.WriteLine(myPlayer.PresentLocation.RoomName.ToString());
 
             Console.ReadLine();
 
