@@ -12,9 +12,10 @@ namespace SecretGame_New
         public string ItemDescription { get; set; }
         public int ItemId { get; set; }
 
-        public Item(int roomId, string name)
+        public Item(int roomId, string itemDescription, string name)
         {
             ItemId = roomId;
+            ItemDescription = itemDescription;
             ItemName = name;
         }
 
