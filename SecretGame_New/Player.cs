@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class Player
+    public class Player
     {
         public string PlayerName { get; set; }
         public List<Item> PlayerBag { get; set; }
@@ -14,10 +14,45 @@ namespace SecretGame_New
         public Room PresentLocation { get; set; }
         public bool Alive { get; set; }
 
-        public int Move(/*presentLocation, direction (userInput)  */)
+        //constructor
+        public Player(string name, string description, Room room, bool alive)
         {
-            throw new NotImplementedException();
+            PlayerName = name;
+            PlayerDescription = description;
+            PresentLocation = room;
+            Alive = alive;
+            PlayerBag = new List<Item>() { };
         }
+
+        //constructor 2
+        public Player(string name, string description, Room room, bool alive, Item item)
+        {
+            PlayerName = name;
+            PlayerDescription = description;
+            PresentLocation = room;
+            Alive = alive;
+            PlayerBag = new List<Item>() { item };
+        }
+    
+        ////  List<Room> ListOfRooms = new List<Room>() { roomA, roomB };
+
+        ////Ellen writes: Below I am trying to create method to move player
+
+        //public Room Move(Room room, string direction) //direction is UserInput
+        //{
+        //    if (direction == "East")//cannot reach ListOfRooms from here - why?!)
+        //    {
+        //        PresentLocation = ??  //Here I want to set PresentLocation to RoomB instead
+            
+        //            return room;            //Can we use the keyword "this." here, to reach current room? 
+        //    }
+        //    else
+        //    {
+        //        return PresentLocation;
+        //    }
+
+        //}
+
         public int Grab(/*presentLocation, item (userInput)*/)
         {
             throw new NotImplementedException();

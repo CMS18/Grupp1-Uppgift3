@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecretGame_New
 {
-    class WorldCreator
+    public class WorldCreator
 
     {
         public WorldCreator()
@@ -14,18 +14,23 @@ namespace SecretGame_New
         {
             Room roomA = new Room("Room A", 0);
             Room roomB = new Room("Room B", 1);
+            World myWorld = new World(roomA);
 
             Door doorA = new Door(roomB, false, "Door A");
 
             Item item0 = new Item(0, "Key");
 
             roomA.ListOfDoors.Add((doorA));
-
+            roomA.RoomInventory.Add((item0));
+            myWorld.ListOfRooms.Add((roomB));
            
-            //  List<Room> ListOfRooms = new List<Room>() { roomA, roomB };
 
 
-         }
+            Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
+
+
+
+        }
 
 
 
