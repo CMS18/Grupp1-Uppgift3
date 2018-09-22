@@ -43,14 +43,14 @@ namespace SecretGame_New
             if (direction == "East")//cannot reach ListOfRooms from here - why?!)
             {
                 int index= + 1; 
-                PresentLocation = listofrooms[index];  //Room should now be roomB//Here I want to set PresentLocation to RoomB instead
+                this.PresentLocation = listofrooms[index];  //Room should now be roomB//Here I want to set PresentLocation to RoomB instead
 
 
-                    return PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
+                    return this.PresentLocation;            //Can we use the keyword "this." here, to reach current room? 
             }
             else
             {
-                return PresentLocation;
+                return this.PresentLocation;
             }
 
         }
