@@ -14,7 +14,7 @@ namespace SecretGame_New
         //constructor 1
         public Player(string name, string description, Room room, bool alive)
         {
-            PlayerName = name; 
+            PlayerName = name; // ta bort Player från namn -- blir det tårta på tårta?
             PlayerDescription = description;
             PresentLocation = room;
             Alive = alive;

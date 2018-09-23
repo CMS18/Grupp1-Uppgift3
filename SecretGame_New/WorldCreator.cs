@@ -27,7 +27,8 @@ namespace SecretGame_New
             Item item3 = new Item(3, "A rusty but sharp knife", "Knife");
             Item item4 = new Item(4, "Biggest tool ever seen", "Hammer");
 
-
+            //Exit exit1 = new Exit(roomA, "West");
+            //Exit exit2 = new Exit(roomB, "East");
             roomA.ListOfDoors.Add(doorA);
             roomA.RoomInventory.Add(item1);
             roomA.RoomInventory.Add(item2);
@@ -36,7 +37,7 @@ namespace SecretGame_New
             
             myWorld.ListOfRooms.Add(roomB);
             myWorld.ListOfRooms.Add(roomC);
-
+            //roomA.ListOfExits.Add(new Exit(roomB, "East"));
 
             Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
 
@@ -46,7 +47,7 @@ namespace SecretGame_New
             
             Console.WriteLine(myPlayer.PresentLocation.RoomName.ToString());
 
-            myPlayer.Move( "West", myWorld.ListOfRooms);
+           // myPlayer.Move( "West", myWorld.ListOfRooms);
 
             Console.ReadLine();
 

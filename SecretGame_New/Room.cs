@@ -13,6 +13,7 @@ namespace SecretGame_New
         public string RoomDescription { get; set; }
         public List<Door> ListOfDoors { get; set; }
         public int RoomId { get; set; }
+        public List<Exit> ListOfExits { get; set; }
 
         public Room(string name, int roomId)
         {
