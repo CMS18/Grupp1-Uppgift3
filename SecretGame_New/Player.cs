@@ -61,6 +61,17 @@ namespace SecretGame_New
             } 
 
         }
+        public Door SearchDoor(string input, bool locked)
+        {
+            foreach (Door d in PresentLocation.ListOfDoors)
+            {
+                if (input == d.Direction && false)
+                {
+
+                }
+            }
+
+        }
 
         public int Grab(/*presentLocation, item (userInput)*/)
         {

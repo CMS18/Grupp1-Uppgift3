@@ -9,10 +9,11 @@ namespace SecretGame_New
     public class World
     {
         public List<Room> ListOfRooms { get; set; }
+        public Player Player { get; set; }
 
-        public World(Room room)
+        public World()
         {
-         ListOfRooms = new List<Room>() { room }; // skippa world?
+            ListOfRooms = new List<Room>();
         }
     }
 }
