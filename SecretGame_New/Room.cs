@@ -12,26 +12,26 @@ namespace SecretGame_New
         public string RoomName { get; set; }
         public string RoomDescription { get; set; }
         public List<Door> ListOfDoors { get; set; }
-        public int RoomId { get; set; }
+      
 
-        public Room(string name, int roomId)
+        public Room(string name, string description)
         {
             RoomName = name;
-            RoomId = roomId;
+            RoomDescription = description; 
             RoomInventory = new List<Item>() { };
             ListOfDoors = new List<Door>() { };
-        }
-        public Room(string name, int roomId, Item item, Door exit)
-        {
-            RoomName = name;
-            RoomId = roomId;
-            RoomInventory = new List<Item>() { item };
-            ListOfDoors = new List<Door>() { exit };
         }
 
         public void PrintDescription()
         {
-            //Visa användaren aktuell rumsbeskrivning
+            if (RoomName == "Kitchen")
+            {
+                Console.WriteLine("This is the very first room in the very empty house.");
+                    foreach(Item c in RoomInventory)
+                    {
+                    Console.WriteLine();
+                    }
+            }//Visa användaren aktuell rumsbeskrivning
         }
 
         public void LookClose()

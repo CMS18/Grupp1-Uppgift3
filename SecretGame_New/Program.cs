@@ -14,8 +14,6 @@ namespace SecretGame_New
             myGame.SetUp();
 
 
-            myGame.World.Player
-
 
             myGame.Play();
 

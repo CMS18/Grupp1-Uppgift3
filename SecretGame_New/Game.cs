@@ -10,8 +10,17 @@ namespace SecretGame_New
     {
         public World World { get; set; }
 
-        internal void Play()
+        public void Play()
         {
+            do
+            {
+                //Console.WriteLine("Type in your next move");
+                string userInput = Console.ReadLine();
+               World.Player.SearchDoor("EAST", false);
+             
+
+            } while (World.Player.Alive == true); 
+            
             //här ligger spelloopen som kör tills död eller vinst
             //innehålla: skriv ut location, 
             //fråga anv vad vill du göra?
@@ -19,7 +28,7 @@ namespace SecretGame_New
             //beroende på svar, anropa rätt kommando/subrutin
             throw new NotImplementedException();
         }
-
+        
         //Skapa instans av WorldCreator
         //anropa WorldCreator-metoden
         //låt WorldCreator-metoden returnera en referens till Player, hit till Game

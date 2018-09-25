@@ -31,46 +31,47 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { item };
         }
 
-        public Room Move(Room presentlocation, string direction, List<Room> listofrooms, bool locked) //direction is UserInput
-        {
-            if (locked == true)
-            {
-                Console.WriteLine("You need a key to open this door. Look around in the room.");
-                return PresentLocation;
-            }
-            else
-            {
-                if (direction == "East")
-                {
-                    int i = listofrooms.IndexOf(presentlocation);
-                    PresentLocation = listofrooms[i + 1];
+        //public Room Move( Door door) //direction is UserInput
+        //{
+        //    //if (locked == true)
+            //{
+            //    Console.WriteLine("You need a key to open this door. Look around in the room.");
+            //    return PresentLocation;
+            //}
+            //else
+            //{
+            //    if (direction == "East")
+            //    {
+            //        int i = listofrooms.IndexOf(presentlocation);
+            //        PresentLocation = listofrooms[i + 1];
 
-                    return PresentLocation;
-                }
-                else if (direction == "West")
-                {
-                    int i = listofrooms.IndexOf(presentlocation);
-                    PresentLocation = listofrooms[i - 1];
+            //        return PresentLocation;
+            //    }
+            //    else if (direction == "West")
+            //    {
+            //        int i = listofrooms.IndexOf(presentlocation);
+            //        PresentLocation = listofrooms[i - 1];
 
-                    return PresentLocation;
-                }
-                else
-                {
-                    return PresentLocation;
-                }
-            } 
+            //        return PresentLocation;
+            //    }
+            //    else
+            //    {
+            //        return PresentLocation;
+            //    }
+            //} 
 
-        }
-        public Door SearchDoor(string input, bool locked)
+        //}
+        public void SearchDoor(string input, bool locked)
         {
             foreach (Door d in PresentLocation.ListOfDoors)
             {
                 if (input == d.Direction && false)
                 {
-
+                    Console.WriteLine(d);
                 }
+                else  Console.WriteLine("Finns ingen dörr med det namnet");
             }
-
+            
         }
 
         public int Grab(/*presentLocation, item (userInput)*/)
