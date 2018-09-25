@@ -3,43 +3,43 @@
   <Class Name="SecretGame_New.Player">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEYAAAAAIAQIAAAAAAAAAAAAAIEQAQAAAACAAABAAA=</HashCode>
+      <HashCode>AEEQAAAAAAAQIAAAAAAAAAAAAAIEQAwAAAACAAABAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Room">
     <Position X="4.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAEAAACAAAAABAkAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
+      <HashCode>QAAEAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
       <FileName>Room.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.World">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAgAAAAAAAAEAAAAAAAAAAAACAAAAAAAAQAAAAA=</HashCode>
       <FileName>World.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SecretGame_New.WorldCreator">
-    <Position X="2.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>WorldCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Game">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Door">
     <Position X="0.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAgAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Door.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecretGame_New.WorldCreator">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WorldCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Program">

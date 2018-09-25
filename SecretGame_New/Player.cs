@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq; 
+using System.Linq;
 
 namespace SecretGame_New
 {
@@ -32,41 +32,26 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { item };
         }
 
-        //public Room Move( Door door) //direction is UserInput
-        //{
-        //    //if (locked == true)
-            //{
-            //    Console.WriteLine("You need a key to open this door. Look around in the room.");
-            //    return PresentLocation;
-            //}
-            //else
-            //{
-            //    if (direction == "East")
-            //    {
-            //        int i = listofrooms.IndexOf(presentlocation);
-            //        PresentLocation = listofrooms[i + 1];
-
-            //        return PresentLocation;
-            //    }
-            //    else if (direction == "West")
-            //    {
-            //        int i = listofrooms.IndexOf(presentlocation);
-            //        PresentLocation = listofrooms[i - 1];
-
-            //        return PresentLocation;
-            //    }
-            //    else
-            //    {
-            //        return PresentLocation;
-            //    }
-            //} 
-
-        //}
         public void SearchDoor(string input)
         {
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==input)
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == input)
                                                    .Select(d => d).ToList();
 
+            if (query[0].Locked == true)
+            {
+                Console.WriteLine("Door locked");
+            }
+            else
+            {
+                PresentLocation = query[0].LeadsTo;
+                Console.WriteLine(query[0].LeadsTo.RoomName);
+            }
+        }
+
+        public void SearchItem(string input)
+        {
+            var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
+                                                   .Select(d => d).ToList();
 
             if (query[0].Locked == true)
             {
@@ -78,15 +63,10 @@ namespace SecretGame_New
                 Console.WriteLine(query[0].LeadsTo.RoomName);
             }
 
-
         }
 
 
 
-        public int Grab(/*presentLocation, item (userInput)*/)
-        {
-            throw new NotImplementedException();
-        }
         public int Drop(/*presentLocation, item (userInput)*/)
         {
             throw new NotImplementedException();
