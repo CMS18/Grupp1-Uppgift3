@@ -9,14 +9,24 @@ namespace SecretGame_New
     public class Game  //behöver vi Game eller ska vi sköta allt i Program (main)? En smaksak
     {
         public World World { get; set; }
+        bool invalidInput = true;
+
 
         public void Play()
         {
+
             do
             {
-                //Console.WriteLine("Type in your next move");
-                string userInput = Console.ReadLine();
-               World.Player.SearchDoor("EAST", false);
+                string userInput; 
+                do
+                {
+                    Console.WriteLine("Type in your next move");
+                    userInput = Console.ReadLine();
+                    KollaInput(userInput);
+                } while (invalidInput);
+
+                World.Player.SearchDoor(userInput);
+                Console.ReadKey();
              
 
             } while (World.Player.Alive == true); 
@@ -28,7 +38,28 @@ namespace SecretGame_New
             //beroende på svar, anropa rätt kommando/subrutin
             throw new NotImplementedException();
         }
-        
+
+        private void KollaInput(string input)
+        {
+            List<string> validinput = new List<string>();
+            validinput.Add("EAST");
+            validinput.Add("WEST");
+           
+            
+                if (validinput.Contains(input))
+                {
+                    Console.WriteLine("Okey");
+                    invalidInput = false;
+                   
+                }
+                else
+                {
+                    Console.WriteLine("Du har skrivit fel");
+                 
+                }
+                  
+        }
+
         //Skapa instans av WorldCreator
         //anropa WorldCreator-metoden
         //låt WorldCreator-metoden returnera en referens till Player, hit till Game

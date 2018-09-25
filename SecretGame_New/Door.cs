@@ -18,7 +18,7 @@ namespace SecretGame_New
         {
             DoorName = doorname;
             LeadsTo = leadsTO;
-            Direction = Direction;
+            Direction = direction;
             Locked = locked;
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq; 
 
 namespace SecretGame_New
 {
@@ -61,18 +62,26 @@ namespace SecretGame_New
             //} 
 
         //}
-        public void SearchDoor(string input, bool locked)
+        public void SearchDoor(string input)
         {
-            foreach (Door d in PresentLocation.ListOfDoors)
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==input)
+                                                   .Select(d => d).ToList();
+
+
+            if (query[0].Locked == true)
             {
-                if (input == d.Direction && false)
-                {
-                    Console.WriteLine(d);
-                }
-                else  Console.WriteLine("Finns ingen dörr med det namnet");
+                Console.WriteLine("Door locked");
             }
-            
+            else
+            {
+                PresentLocation = query[0].LeadsTo;
+                Console.WriteLine(query[0].LeadsTo.RoomName);
+            }
+
+
         }
+
+
 
         public int Grab(/*presentLocation, item (userInput)*/)
         {

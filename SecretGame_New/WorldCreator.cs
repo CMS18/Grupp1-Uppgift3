@@ -23,7 +23,7 @@ namespace SecretGame_New
             World world = new World();
 
             Room roomA = new Room("hallway", "You standing in a very light room, with a few signs of an other person"); //skippa id
-            Room roomB = new Room("Room B", "jlkjlkj");
+            Room roomB = new Room("kitchen", "jlkjlkj");
             Room roomC = new Room("Diner", "The final room and there is just one way out");
             Room finalRoom = new Room("Final Room","jljlJ");
             world.ListOfRooms.Add(roomA);
@@ -42,7 +42,7 @@ namespace SecretGame_New
             roomB.RoomInventory.Add(hammer);
             roomC.RoomInventory.Add(apple);
 
-            Door doorA = new Door(roomB, true, "EAST", "Door A");
+            Door doorA = new Door(roomB, false, "EAST", "Door A");
             Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");
             Door doorBEast = new Door(roomC, false, "EAST", "Door BEast");
             Door doorCWest = new Door(roomB, false, "WEST", "Door CWest");
