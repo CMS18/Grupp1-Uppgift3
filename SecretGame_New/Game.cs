@@ -21,7 +21,7 @@ namespace SecretGame_New
                 do
                 {
                     Console.WriteLine("Type in your next move");
-                    userInput = Console.ReadLine();
+                    userInput = Console.ReadLine().ToUpper();
                     KollaInput(userInput);
                 } while (invalidInput);
 
@@ -41,9 +41,34 @@ namespace SecretGame_New
 
         private void KollaInput(string input)
         {
+
+
+            string text = input;
+            string[] inputs = input.Split(' ');
+
+            //foreach (string s in inputs)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+            //if (inputs[0] == "move")
+            //{
+            //    Console.WriteLine("Du vill gå ");
+            //}
+
+            //if (inputs[1] == "right")
+            //{
+            //    Console.WriteLine("Du vill gå till höger");
+            //}
+            //// Console.WriteLine(direction);
             List<string> validinput = new List<string>();
             validinput.Add("EAST");
             validinput.Add("WEST");
+            validinput.Add("GRAB");
+            validinput.Add("USE");
+            validinput.Add("DROP");
+            validinput.Add("KEY");
+            validinput.Add("APPLE");
            
             
                 if (validinput.Contains(input))

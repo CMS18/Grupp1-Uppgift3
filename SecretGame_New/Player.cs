@@ -62,9 +62,9 @@ namespace SecretGame_New
             //} 
 
         //}
-        public void SearchDoor(string input)
+        public void SearchDoor(string[] input)
         {
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==input)
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==input[1]) // ändrat till [1] då input har blivit en array efter split. 
                                                    .Select(d => d).ToList();
 
 
