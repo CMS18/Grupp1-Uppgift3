@@ -48,29 +48,31 @@ namespace SecretGame_New
             }
         }
 
-        public void SearchItem(string input)
+        public void GetItemFromRoom(string input)
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
-                                                   .Select(d => d).ToList();
+                                                     .Select(d => d).ToList();
 
-            if (query[0].Locked == true)
-            {
-                Console.WriteLine("Door locked");
-            }
-            else
-            {
-                PresentLocation = query[0].LeadsTo;
-                Console.WriteLine(query[0].LeadsTo.RoomName);
-            }
-
+            //lägger till item i Playerbag o tar bort från Roominventory
+            PlayerBag.Add(query[0]);
+            PresentLocation.RoomInventory.Remove(query[0]);
         }
-
-
-
-        public int Drop(/*presentLocation, item (userInput)*/)
+        public void DropItemInRoom(string input)
         {
-            throw new NotImplementedException();
+            var query = PlayerBag.Where(i => i.ItemName == input)
+                                 .Select(d => d).ToList();
+
+            PlayerBag.Remove(query[0]);
+            PresentLocation.RoomInventory.Add(query[0]);
         }
+        public void InspectItem(string input)
+        {
+            var query = PlayerBag.Where(i => i.ItemName == input)
+                                 .Select(d => d).ToList();
+
+            Console.WriteLine(query[0].ItemDescription); //skriver ut föremålets beskrivning
+        }
+
         public int Use(/*presentLocation, item (userInput), item2 (userInput)*/)
         {
             throw new NotImplementedException();
@@ -84,10 +86,6 @@ namespace SecretGame_New
             //kontrollerar rummets föremål, visa aktuell beskrivning
             throw new NotImplementedException();
         }
-        public int Inspect(/*presentLocation, item (userInput)*/)
-        {
-            //Visa föremålets text
-            throw new NotImplementedException();
-        }
+
     }
 }

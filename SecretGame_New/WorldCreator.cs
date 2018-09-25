@@ -36,7 +36,6 @@ namespace SecretGame_New
             Item apple = new Item("A tasty red apple", "Apple");
             Item knife = new Item("A rusty but sharp knife", "Knife");
             Item hammer = new Item("Biggest tool ever seen", "Hammer");
-            roomA.RoomInventory.Add(map);
             roomA.RoomInventory.Add(key);
             roomB.RoomInventory.Add(knife);
             roomB.RoomInventory.Add(hammer);

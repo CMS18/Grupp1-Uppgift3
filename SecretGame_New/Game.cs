@@ -14,6 +14,10 @@ namespace SecretGame_New
 
         public void Play()
         {
+            //3 Testrader för Get-Inspect-Drop- metoder
+            World.Player.GetItemFromRoom("Key");
+            World.Player.InspectItem("Key");
+            World.Player.DropItemInRoom("Key");
 
             do
             {
