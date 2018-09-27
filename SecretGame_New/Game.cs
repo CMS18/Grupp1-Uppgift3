@@ -140,7 +140,7 @@ namespace SecretGame_New
 
             if (query[0].ToString() == "INSPECT")
             {
-                World.Player.Inspect(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
+                World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
             }
 
             var query5 = inputs.Where(x => x == "USE")

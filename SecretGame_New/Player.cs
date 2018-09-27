@@ -22,45 +22,6 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { };
         }
 
-        public void SearchDoorAndMove(string input)
-        {
-            PlayerName = name;
-            PlayerDescription = description;
-            PresentLocation = room;
-            Alive = alive;
-            PlayerBag = new List<Item>() { item };
-        }
-
-        //public Room Move( Door door) //direction is UserInput
-        //{
-        //    //if (locked == true)
-            //{
-            //    Console.WriteLine("You need a key to open this door. Look around in the room.");
-            //    return PresentLocation;
-            //}
-            //else
-            //{
-            //    if (direction == "East")
-            //    {
-            //        int i = listofrooms.IndexOf(presentlocation);
-            //        PresentLocation = listofrooms[i + 1];
-
-            //        return PresentLocation;
-            //    }
-            //    else if (direction == "West")
-            //    {
-            //        int i = listofrooms.IndexOf(presentlocation);
-            //        PresentLocation = listofrooms[i - 1];
-
-            //        return PresentLocation;
-            //    }
-            //    else
-            //    {
-            //        return PresentLocation;
-            //    }
-            //} 
-
-        //}
         public void SearchDoor(string input)
         {
             // gör om till lista för att kunna jämföra d.Direction med det andra ordet som användaren skrivit in. 
@@ -130,9 +91,10 @@ namespace SecretGame_New
         {
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
             Console.WriteLine("The items you can see in this room are: ");
-            {
-                Console.WriteLine(this.PresentLocation.RoomInventory[item]);    //skriva ut rummets föremål!
+            {//anropa: PrintDescription
+                this.PresentLocation osv
             }
+
         }
 
     }
