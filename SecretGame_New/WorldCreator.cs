@@ -37,6 +37,7 @@ namespace SecretGame_New
             Item knife = new Item("A rusty but sharp knife", "Knife");
             Item hammer = new Item("Biggest tool ever seen", "Hammer");
             roomA.RoomInventory.Add(key);
+            roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(knife);
             roomB.RoomInventory.Add(hammer);
             roomC.RoomInventory.Add(apple);
@@ -52,7 +53,7 @@ namespace SecretGame_New
             roomC.ListOfDoors.Add(doorCWest);
             roomC.ListOfDoors.Add(doorCEast);                 
            
-            world.Player = new Player("Catwoman", "Fast, smooth, smart", roomA, true, map);
+            world.Player = new Player("Catwoman", "Fast, smooth, smart", roomA, true);
             return world;
         }
 

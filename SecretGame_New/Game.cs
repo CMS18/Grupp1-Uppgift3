@@ -14,10 +14,14 @@ namespace SecretGame_New
 
         public void Play()
         {
-            //3 Testrader för Get-Inspect-Drop- metoder
-            World.Player.GetItemFromRoom("Key");
+            // Testrader för Grab-Inspect-Drop- metoder
+            World.Player.Grab("Key");
             World.Player.InspectItem("Key");
-            World.Player.DropItemInRoom("Key");
+            World.Player.DropItem("Key");
+            World.Player.Grab("Key");
+            World.Player.PutItemInBag("Key");
+            World.Player.ItemFromBagToRoom("Key");
+            World.Player.Look("Look");
 
             do
             {
@@ -29,7 +33,7 @@ namespace SecretGame_New
                     KollaInput(userInput);
                 } while (invalidInput);
 
-                World.Player.SearchDoor(userInput);
+                World.Player.SearchDoorAndMove(userInput);
                 Console.ReadKey();
              
 
