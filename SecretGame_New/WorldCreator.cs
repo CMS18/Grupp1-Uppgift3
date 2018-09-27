@@ -16,28 +16,29 @@ namespace SecretGame_New
 
         public World BuildWorld()// internal
         {
-            //Build room A osv
             World world = new World();
 
-            Room roomA = new Room("hallway", "You standing in a very light room, with a few signs of an other person"); //skippa id
+            Room roomA = new Room("hallway", "You are standing in a very light room, with a few signs of an other person."); //skippa id
             Room roomB = new Room("kitchen", "You are standing in a very nice kitchen.\n On the floor you see nothing...\n But on the table you see an apple");
             Room roomC = new Room("Diner", "The final room and there is just one way out");
-            Room finalRoom = new Room("Final Room","Yay! You did it!");
+            Room finalRoom = new Room("Final Room", "Yay! You did it!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
             world.ListOfRooms.Add(finalRoom);
 
-            Item map = new Item("An old map of the rooms in this enormous house", "Map");
-            Item key = new Item("A big golden key", "Key");
-            Item apple = new Item("A tasty red apple", "Apple");
-            Item knife = new Item("A rusty but sharp knife", "Knife");
-            Item hammer = new Item("Biggest tool ever seen", "Hammer");
+            Item map = new Item("An old map of the rooms in this enormous house", "map");
+            Item key = new Item("A big golden key", "key");
+            Item apple = new Item("A tasty red apple", "apple");
+            Item knife = new Item("A rusty but sharp knife", "knife");
+            Item hammer = new Item("Biggest tool ever seen", "hammer");
+            Item toy = new Item("An old fashioned doll", "plastic toy");
             roomA.RoomInventory.Add(key);
             roomA.RoomInventory.Add(map);
-            roomB.RoomInventory.Add(knife);
             roomB.RoomInventory.Add(hammer);
             roomC.RoomInventory.Add(apple);
+
+
 
             Door doorA = new Door(roomB, false, "EAST", "Door A");
             Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");
@@ -48,94 +49,25 @@ namespace SecretGame_New
             roomB.ListOfDoors.Add(doorBWest);
             roomB.ListOfDoors.Add(doorBEast);
             roomC.ListOfDoors.Add(doorCWest);
-            roomC.ListOfDoors.Add(doorCEast);                 
-           
+            roomC.ListOfDoors.Add(doorCEast);
+
             world.Player = new Player("Catwoman", "Fast, smooth, smart", roomA, true);
+            world.Player.PlayerBag.Add(toy);
+            world.Player.PlayerBag.Add(knife);
+
+            ////Testrader, Ellen:
+            //world.Player.Grab("key");
+            //world.Player.InspectItem("key");
+            //world.Player.DropItem("key");
+            //world.Player.Grab("key");
+            //world.Player.PutItemInBag("key");
+            //world.Player.ItemFromBagToRoom("key");
+            //world.Player.Look("Look");
+
+            //world.Player.PresentLocation.PrintDescription(roomA); //Testa om funkar även
+            //                                                     //när spelaren flyttat sig från roomA
+
             return world;
         }
-
-
-        //Room roomA = new Room("Room A", 0); //skippa id
-        //Room roomB = new Room("Room B", 1);
-        //Room roomC = new Room("Room C", 2);
-        //Room finalRoom = new Room("Final Room", 3);
-        //World myWorld = new World(roomA);
-
-        //Door doorA = new Door(roomB, true, "EAST", "Door A");
-        //Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");
-        //Door doorBEast = new Door(roomC, false, "EAST", "Door BEast");
-        //Door doorCWest = new Door(roomB, false, "WEST", "Door CWest");
-        //Door doorCEast = new Door(finalRoom, false, "EAST", "Door CEast");
-
-
-        //Item item0 = new Item(0, "An old map of the rooms in this enormous house", "Map");
-        //Item item1 = new Item(1, "A big golden key", "Key");
-        //Item item2 = new Item(2, "A tasty red apple", "Apple");
-        //Item item3 = new Item(3, "A rusty but sharp knife", "Knife");
-        //Item item4 = new Item(4, "Biggest tool ever seen", "Hammer");
-
-        //roomA.ListOfDoors.Add(doorA);
-        //roomB.ListOfDoors.Add(doorBWest);
-        //roomB.ListOfDoors.Add(doorBEast);
-        //roomC.ListOfDoors.Add(doorCWest);
-        //roomC.ListOfDoors.Add(doorCEast);
-        //roomA.RoomInventory.Add(item1);
-        //roomA.RoomInventory.Add(item2);
-        //roomB.RoomInventory.Add(item3);
-        //roomB.RoomInventory.Add(item4);
-
-        //myWorld.ListOfRooms.Add(roomB);
-        //myWorld.ListOfRooms.Add(roomC);
-
-        //Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
-
-        //myPlayer.Move(myPlayer.PresentLocation, "East", myWorld.ListOfRooms, true);
-        //myPlayer.Move(myPlayer.PresentLocation, "East", myWorld.ListOfRooms, false);
-        //myPlayer.Move(myPlayer.PresentLocation, "West", myWorld.ListOfRooms, false);
-
-        //Console.WriteLine(myPlayer.PresentLocation.RoomName.ToString());
-
-        //// myPlayer.Move( "West", myWorld.ListOfRooms);
-
-        //Console.ReadLine();
-        //public Player Initialize()
-        //{
-        //Room roomA = new Room("Room A", 0); //skippa id
-        //Room roomB = new Room("Room B", 1);
-        //Room roomC = new Room("Room C", 2);
-        //Room finalRoom = new Room("Final Room", 3);
-        //World myWorld = new World(roomA);
-
-        //Door doorA = new Door(roomB, true, "EAST", "Door A");
-        //Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");
-        //Door doorBEast = new Door(roomC, false, "EAST", "Door BEast");
-        //Door doorCWest = new Door(roomB, false, "WEST", "Door CWest");
-        //Door doorCEast = new Door(finalRoom, false, "EAST", "Door CEast");
-
-
-        //Item item0 = new Item(0, "An old map of the rooms in this enormous house", "Map");
-        //Item item1 = new Item(1, "A big golden key", "Key");
-        //Item item2 = new Item(2, "A tasty red apple", "Apple");
-        //Item item3 = new Item(3, "A rusty but sharp knife", "Knife");
-        //Item item4 = new Item(4, "Biggest tool ever seen", "Hammer");
-
-        //roomA.ListOfDoors.Add(doorA);
-        //    roomB.ListOfDoors.Add(doorBWest);
-        //    roomB.ListOfDoors.Add(doorBEast);
-        //    roomC.ListOfDoors.Add(doorCWest);
-        //    roomC.ListOfDoors.Add(doorCEast);
-        //    roomA.RoomInventory.Add(item1);
-        //    roomA.RoomInventory.Add(item2);
-        //    roomB.RoomInventory.Add(item3);
-        //    roomB.RoomInventory.Add(item4);
-
-        //    myWorld.ListOfRooms.Add(roomB);
-        //    myWorld.ListOfRooms.Add(roomC);
-
-        //    Player myPlayer = new Player("Catwoman", "Fast, smooth, smart", roomA, true, item0);
-
-        ////}
-
-
     }
 }

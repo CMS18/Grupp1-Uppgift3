@@ -1,55 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SecretGame_New.Player">
-    <Position X="2.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEEQAAAAAAAQIAAAAAAAAAAAAAIEQAwAAAACAAABAAA=</HashCode>
-      <FileName>Player.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SecretGame_New.Room">
-    <Position X="4.5" Y="1.75" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAEAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
+      <HashCode>QAAEAAAAAAAAIAAkAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
       <FileName>Room.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.World">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAgAAAAAAAAEAAAAAAAAAAAACAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAEAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Game">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABgAAAiAAQAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Door">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAgAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Door.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.WorldCreator">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WorldCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecretGame_New.Program">
-    <Position X="1" Y="0.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecretGame_New.Player">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEYAAAAAABAAAAAAAAAAgAAAAIEgASAACACAAABAAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecretGame_New.Item">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

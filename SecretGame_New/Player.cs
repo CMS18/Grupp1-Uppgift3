@@ -25,13 +25,13 @@ namespace SecretGame_New
         public void SearchDoor(string input)
         {
             // gör om till lista för att kunna jämföra d.Direction med det andra ordet som användaren skrivit in. 
-            string text = input; 
+            string text = input;
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
             var query1 = inputs.Where(i => i == "EAST" || i == "WEST")  // kollar vad väderstrecket ligger i input-listan
                                 .Select(i => i).ToList();
-                        
+
             var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
                                                    .Select(d => d).ToList();
 
@@ -43,7 +43,7 @@ namespace SecretGame_New
             {
                 PresentLocation = query[0].LeadsTo;
                 Console.WriteLine(query[0].LeadsTo.RoomName);
-                Console.WriteLine((query[0].LeadsTo.RoomDescription)); 
+                Console.WriteLine((query[0].LeadsTo.RoomDescription));
             }
         }
 
@@ -51,28 +51,42 @@ namespace SecretGame_New
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
                                                      .Select(d => d).ToList();
-
-            InHand = query[0]; //player tar upp item
+            if (query[0] != null)
+            {
+                InHand = query[0]; //player tar upp item
+                Console.WriteLine("You grab the " + InHand.ItemName + ".");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, there is no " + input + " in this room.");
+            }
         }
         public void InspectItem(string input)
         {
-
+            Console.WriteLine("You are holding a " + InHand.ItemName + ".");
             Console.WriteLine(InHand.ItemDescription); //skriver ut föremålets beskrivning
         }
 
         public void PutItemInBag(string input) //på kommando "TAKE"
         {
-            //lägger till item i Playerbag o tar bort från Roominventory
-            PlayerBag.Add(InHand);
-            PresentLocation.RoomInventory.Remove(InHand);
-            InHand = null;
-            Console.WriteLine("Taken.");
+            if (InHand != null)
+            {
+                //lägger till item i Playerbag o tar bort från Roominventory
+                PlayerBag.Add(InHand);
+                PresentLocation.RoomInventory.Remove(InHand);
+                InHand = null;
+                Console.WriteLine("Taken.");
+            }
+            else
+            {
+                Console.WriteLine("You haven't got anything in your hand.");
+            }
         }
 
         public void DropItem(string input)
         {
+            Console.WriteLine("Dropped " + InHand.ItemName + ".");
             InHand = null;
-            Console.WriteLine("Dropped."); //ev fixa utskriften av InHand (Item)
         }
 
         public void ItemFromBagToRoom(string input) //på kommando "LEAVE"
@@ -89,15 +103,11 @@ namespace SecretGame_New
         {
             throw new NotImplementedException();
         }
-       
+
         public void Look(string input)
         {
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
-            Console.WriteLine("The items you can see in this room are: ");
-            {//anropa: PrintDescription
-                this.PresentLocation osv
-            }
-
+            PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
 
     }
