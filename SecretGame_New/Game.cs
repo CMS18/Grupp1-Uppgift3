@@ -15,14 +15,14 @@ namespace SecretGame_New
 
         public void Play()
         {
-            // Testrader för Grab-Inspect-Drop- metoder
-            World.Player.Grab("Key");
-            World.Player.InspectItem("Key");
-            World.Player.DropItem("Key");
-            World.Player.Grab("Key");
-            World.Player.PutItemInBag("Key");
-            World.Player.ItemFromBagToRoom("Key");
-            World.Player.Look("Look");
+            //// Testrader för Grab-Inspect-Drop- metoder
+            //World.Player.Grab("Key");
+            //World.Player.InspectItem("Key");
+            //World.Player.DropItem("Key");
+            //World.Player.Grab("Key");
+            //World.Player.PutItemInBag("Key");
+            //World.Player.ItemFromBagToRoom("Key");
+            //World.Player.Look("Look");
 
             do
             {
@@ -31,14 +31,23 @@ namespace SecretGame_New
                 {
                     Console.WriteLine("Type in your next move");
                     userInput = Console.ReadLine().ToUpper();
+                    //string text = userInput.ToUpper();
+                    ////char[] separator = new char[] { (' ') };
+                    //string[] inputs = text.Split(' '); //(separator, StringSplitOptions.RemoveEmptyEntries);
+                    
 
+                    //if (inputs.Length < 2)
+                    //{
+                    //    KollaInput3(userInput);
+                    //}
+                   
                     KollaInput(userInput);
 
                 } while (invalidInput); // kontrolloop för giltiga ord.
 
                 Console.WriteLine("Du är nu utanför loopen för Kolla input");
                 KollaInput2(userInput); // kontrollera vad som skrivits in och vidarebefordra spelaren till rätt metod. 
-
+              
                // World.Player.SearchDoor(userInput); // om spelaren vill move east eller west. Ev förflyttas till inom KollaInput2?
 
                 Console.ReadKey();
@@ -53,6 +62,17 @@ namespace SecretGame_New
             //beroende på svar, anropa rätt kommando/subrutin
             throw new NotImplementedException();
         }
+
+        //private void KollaInput3(input())
+        //{
+        //    //string text = userInput.ToUpper();
+        //    ////char[] separator = new char[] { (' ') };
+        //    //string[] inputs = text.Split(' '); //(separator, StringSplitOptions.RemoveEmptyEntries)
+
+        //    List<string> oneword = new List<string>();
+
+        //    throw new NotImplementedException();
+        //}
 
         private void KollaInput(string input)
         {
@@ -71,6 +91,10 @@ namespace SecretGame_New
             validinput.Add("KEY");
             validinput.Add("APPLE");
             validinput.Add("INSPECT");
+            validinput.Add("LOOK");
+            validinput.Add("AROUND");
+            validinput.Add("TAKE");
+           
 
 
             foreach (string e in validinput)
@@ -97,7 +121,7 @@ namespace SecretGame_New
                 Console.WriteLine("Du har skrivit fel kommando.\n Möjliga kommandon: \n Move, Drop, Use, Take, \n East, West, Key, Apple ");
             }
             
-            if (validInputs.Count == 2 )
+            if (validInputs.Count <= 2 )
             {
                 invalidInput = false;
             }
@@ -109,68 +133,53 @@ namespace SecretGame_New
             string text = userInput;
             //char[] separator = new char [] { (' ') };
             string[] inputs = text.Split(' '); //separator, StringSplitOptions.RemoveEmptyEntries);
+            bool command = true; 
 
+            while (command)
+            { 
 
-
-            var query = inputs.Where(x => x == "MOVE")
+                 var query = inputs.Where(x => x == "MOVE")
                              .Select(x => x).ToList();
             
-            if (query[0].ToString() == "MOVE")
-            {
-                World.Player.SearchDoor(userInput);
-            }
-            
+                 if (query[0].ToString() == "MOVE")
+                 {
 
-            var query1 = inputs.Where(x => x == "GRAB")
+                     World.Player.SearchDoor(userInput);
+                    command = false;
+                    break; 
+                    
+                 }
+       
+
+                 var query1 = inputs.Where(x => x == "GRAB")
                              .Select(x => x).ToList();
 
-            if (query[0].ToString() == "GRAB")
-            {
+                 if (query[0].ToString() == "GRAB")
+                 {
                 // METOD FÖR GRAB World.Player.SearchDoor(userInput);
-            }
+                 }
 
-            var query2 = inputs.Where(x => x == "DROP")
+                var query2 = inputs.Where(x => x == "DROP")
                              .Select(x => x).ToList();
 
-            var query3 = inputs.Where(x => x == "TAKE")
+                var query3 = inputs.Where(x => x == "TAKE")
                              .Select(x => x).ToList();
 
-            var query4 = inputs.Where(x => x == "INSPECT")
+                var query4 = inputs.Where(x => x == "INSPECT")
                              .Select(x => x).ToList();
 
-            if (query[0].ToString() == "INSPECT")
-            {
-                World.Player.Inspect(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
-            }
+                if (query[0].ToString() == "INSPECT")
+                {
+                     World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
+                }
 
-            var query5 = inputs.Where(x => x == "USE")
+                var query5 = inputs.Where(x => x == "USE")
                              .Select(x => x).ToList();
 
-            var query6 = inputs.Where(x => x == "MOVE")
+                var query6 = inputs.Where(x => x == "MOVE")
            
                              .Select(x => x).ToList();
-
-            //if(inputs[0] == "GRAB")
-            //{
-            //    string result = inputs[0];
-            //World.Player.Grab(result);
-            //}
-
-            //foreach (string s in inputs)
-            //{
-            //    Console.WriteLine(s);
-            //}
-
-            //if (inputs[0] == "move")
-            //{
-            //    Console.WriteLine("Du vill gå ");
-            //}
-
-            //if (inputs[1] == "right")
-            //{
-            //    Console.WriteLine("Du vill gå till höger");
-            //}
-            //// Console.WriteLine(direction);
+            }
         }
     //Skapa instans av WorldCreator
     //anropa WorldCreator-metoden

@@ -10,12 +10,9 @@ namespace SecretGame_New
 
     {
         public WorldCreator() //i constructorn ska bara vara basic saker, Lägg grupperna nedan i egna metoder 
-            //under constructorn
+                              //under constructorn
 
-        {
-        
-
-        }
+        { }
 
         public World BuildWorld()// internal
         {
@@ -25,7 +22,7 @@ namespace SecretGame_New
             Room roomA = new Room("hallway", "You standing in a very light room, with a few signs of an other person"); //skippa id
             Room roomB = new Room("kitchen", "You are standing in a very nice kitchen.\n On the floor you see nothing...\n But on the table you see an apple");
             Room roomC = new Room("Diner", "The final room and there is just one way out");
-            Room finalRoom = new Room("Final Room","jljlJ");
+            Room finalRoom = new Room("Final Room","Yay! You did it!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);

@@ -34,6 +34,8 @@ namespace SecretGame_New
             }//Visa användaren aktuell rumsbeskrivning
         }
 
+         
+
         public void LookClose()
         {
 

@@ -22,14 +22,14 @@ namespace SecretGame_New
             PlayerBag = new List<Item>() { };
         }
 
-        public void SearchDoorAndMove(string input)
-        {
-            PlayerName = name;
-            PlayerDescription = description;
-            PresentLocation = room;
-            Alive = alive;
-            PlayerBag = new List<Item>() { item };
-        }
+        //public void SearchDoorAndMove(string input)
+        //{
+        //    PlayerName = playername;
+        //    PlayerDescription = description;
+        //    PresentLocation = room;
+        //    Alive = alive;
+        //    PlayerBag = new List<Item>() { item };
+        //}
 
         //public Room Move( Door door) //direction is UserInput
         //{
@@ -68,7 +68,10 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==inputs[1]) // ändrat till [1] då input har blivit en array efter split. 
+            var query1 = inputs.Where(i => i == "EAST" || i == "WEST")  // kollar vad väderstrecket ligger i input-listan
+                                .Select(i => i).ToList();
+                        
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
                                                    .Select(d => d).ToList();
 
             if (query[0].Locked == true)
@@ -131,7 +134,8 @@ namespace SecretGame_New
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
             Console.WriteLine("The items you can see in this room are: ");
             {
-                Console.WriteLine(this.PresentLocation.RoomInventory[item]);    //skriva ut rummets föremål!
+                Console.WriteLine("Här skrivs rummets föremål ut");
+                //    Console.WriteLine(this.PresentLocation.RoomInventory[item]);    //skriva ut rummets föremål!
             }
         }
 
