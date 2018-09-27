@@ -62,9 +62,14 @@ namespace SecretGame_New
             //} 
 
         //}
-        public void SearchDoor(string[] input)
+        public void SearchDoor(string input)
         {
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==input[1]) // ändrat till [1] då input har blivit en array efter split. 
+            // gör om till lista för att kunna jämföra d.Direction med det andra ordet som användaren skrivit in. 
+            string text = input; 
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
+
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==inputs[1]) // ändrat till [1] då input har blivit en array efter split. 
                                                    .Select(d => d).ToList();
 
 
@@ -76,6 +81,7 @@ namespace SecretGame_New
             {
                 PresentLocation = query[0].LeadsTo;
                 Console.WriteLine(query[0].LeadsTo.RoomName);
+                Console.WriteLine((query[0].LeadsTo.RoomDescription)); 
             }
 
 
@@ -83,8 +89,9 @@ namespace SecretGame_New
 
 
 
-        public int Grab(/*presentLocation, item (userInput)*/)
+        public int Grab(string result)
         {
+            Console.WriteLine("Du vill ta ngt");
             throw new NotImplementedException();
         }
         public int Drop(/*presentLocation, item (userInput)*/)
@@ -104,8 +111,13 @@ namespace SecretGame_New
             //kontrollerar rummets föremål, visa aktuell beskrivning
             throw new NotImplementedException();
         }
-        public int Inspect(/*presentLocation, item (userInput)*/)
+        public int Inspect( string input/*presentLocation,  (userInput)*/)
         {
+            string text = input;
+            //char[] separator = new char [] { (' ') }; // HUR SKA VI FÅ REDA PÅ RÄTT ITEM???
+            string[] inputs = text.Split(' ');
+
+          
             //Visa föremålets text
             throw new NotImplementedException();
         }

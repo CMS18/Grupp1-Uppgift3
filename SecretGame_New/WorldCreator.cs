@@ -23,7 +23,7 @@ namespace SecretGame_New
             World world = new World();
 
             Room roomA = new Room("hallway", "You standing in a very light room, with a few signs of an other person"); //skippa id
-            Room roomB = new Room("kitchen", "jlkjlkj");
+            Room roomB = new Room("kitchen", "You are standing in a very nice kitchen.\n On the floor you see nothing...\n But on the table you see an apple");
             Room roomC = new Room("Diner", "The final room and there is just one way out");
             Room finalRoom = new Room("Final Room","jljlJ");
             world.ListOfRooms.Add(roomA);
@@ -53,7 +53,8 @@ namespace SecretGame_New
             roomC.ListOfDoors.Add(doorCWest);
             roomC.ListOfDoors.Add(doorCEast);                 
            
-            world.Player = new Player("Catwoman", "Fast, smooth, smart", roomA, true, map);
+            world.Player = new Player ("Catwoman", "Fast, smooth, smart", roomA, true, map);
+
             return world;
         }
 
