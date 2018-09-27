@@ -24,7 +24,51 @@ namespace SecretGame_New
 
         public void SearchDoorAndMove(string input)
         {
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == input)
+            PlayerName = name;
+            PlayerDescription = description;
+            PresentLocation = room;
+            Alive = alive;
+            PlayerBag = new List<Item>() { item };
+        }
+
+        //public Room Move( Door door) //direction is UserInput
+        //{
+        //    //if (locked == true)
+            //{
+            //    Console.WriteLine("You need a key to open this door. Look around in the room.");
+            //    return PresentLocation;
+            //}
+            //else
+            //{
+            //    if (direction == "East")
+            //    {
+            //        int i = listofrooms.IndexOf(presentlocation);
+            //        PresentLocation = listofrooms[i + 1];
+
+            //        return PresentLocation;
+            //    }
+            //    else if (direction == "West")
+            //    {
+            //        int i = listofrooms.IndexOf(presentlocation);
+            //        PresentLocation = listofrooms[i - 1];
+
+            //        return PresentLocation;
+            //    }
+            //    else
+            //    {
+            //        return PresentLocation;
+            //    }
+            //} 
+
+        //}
+        public void SearchDoor(string input)
+        {
+            // gör om till lista för att kunna jämföra d.Direction med det andra ordet som användaren skrivit in. 
+            string text = input; 
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
+
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction ==inputs[1]) // ändrat till [1] då input har blivit en array efter split. 
                                                    .Select(d => d).ToList();
 
             if (query[0].Locked == true)
@@ -35,6 +79,7 @@ namespace SecretGame_New
             {
                 PresentLocation = query[0].LeadsTo;
                 Console.WriteLine(query[0].LeadsTo.RoomName);
+                Console.WriteLine((query[0].LeadsTo.RoomDescription)); 
             }
         }
 

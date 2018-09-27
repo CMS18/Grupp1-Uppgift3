@@ -24,9 +24,11 @@ namespace SecretGame_New
             throw new NotImplementedException();
         }
 
-        public int Inspect()
+        public void Inspect()
         {
-            throw new NotImplementedException();
+
+        
+            Console.WriteLine(ItemName +  ItemDescription); 
         }
     }
 }
