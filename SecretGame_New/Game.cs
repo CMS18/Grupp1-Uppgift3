@@ -196,7 +196,7 @@ namespace SecretGame_New
 
                     foreach(string f in validinput)
                     {
-                        if ( f == inputs[1])
+                        if ( f == inputs[1])  
                         {
                             Console.WriteLine("okey2"); 
                             validInputs.Add(f);
@@ -233,7 +233,7 @@ namespace SecretGame_New
                  if (query[0].ToString() == "MOVE")
                  {
 
-                     World.Player.SearchDoor(userInput);
+                    World.Player.SearchDoor(userInput);
                     command = false;
                     break; 
                     
@@ -243,10 +243,12 @@ namespace SecretGame_New
                  var query1 = inputs.Where(x => x == "GRAB")
                              .Select(x => x).ToList();
 
-                 if (query[0].ToString() == "GRAB")
+                 if (query1[0].ToString() == "GRAB")
                  {
-                // METOD FÖR GRAB World.Player.SearchDoor(userInput);
-                 }
+                    World.Player.Grab(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
+                    command = false;
+                    break;
+                }
 
                 var query2 = inputs.Where(x => x == "DROP")
                              .Select(x => x).ToList();
