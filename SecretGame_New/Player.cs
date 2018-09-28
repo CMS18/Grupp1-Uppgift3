@@ -37,7 +37,8 @@ namespace SecretGame_New
 
             if (query[0].Locked == true)
             {
-                Console.WriteLine("Door locked");
+                Console.WriteLine("Door locked! Do you have a key?");
+                
             }
             else
             {
@@ -85,8 +86,17 @@ namespace SecretGame_New
             PresentLocation.RoomInventory.Add(query[0]);
         }
 
-        public int Use(/*presentLocation, item (userInput), item2 (userInput)*/)
+        public int Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
         {
+            string text = input;
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
+
+           if(PlayerBag.ToString().Contains(inputs[1]))
+            {
+
+            }
+
             throw new NotImplementedException();
         }
        
@@ -95,7 +105,7 @@ namespace SecretGame_New
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
             Console.WriteLine("The items you can see in this room are: ");
             {//anropa: PrintDescription
-                this.PresentLocation osv
+                //this.PresentLocation osv
             }
 
         }
