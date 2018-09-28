@@ -22,19 +22,32 @@ namespace SecretGame_New
             ListOfDoors = new List<Door>() { };
         }
 
-        public void PrintDescription()
+        public void PrintDescription(Room room) //på kommando LOOK //argument: Room eller en input-string?
         {
-            if (RoomName == "Kitchen")
+            Console.WriteLine(RoomDescription);
+            Console.WriteLine("The items you can see in this room are: ");
+            foreach (Item item in RoomInventory)
             {
-                Console.WriteLine("This is the very first room in the very empty house.");
-                foreach (Item c in RoomInventory)
-                {
-                    Console.WriteLine(c.ItemDescription); //+ visa listan över alla utgångar i rummet
-                }
-            }//Visa användaren aktuell rumsbeskrivning
+                Console.WriteLine(item.ItemName + ": " + item.ItemDescription); //listar rummets föremål
+            }
+
+            Console.WriteLine("The exits from this room are: ");
+            foreach (Door door in ListOfDoors)
+            {
+                Console.WriteLine(door.DoorName + ", leads to: " + door.LeadsTo.RoomName); //listar rummets dörrar
+            }
         }
 
-         
+        public void PrintRoomInventory(Room presentLocation)
+        {
+            Console.WriteLine("The items you can see in this room are: ");
+            foreach (Item item in RoomInventory)
+            {
+                Console.WriteLine(item.ItemName);
+            }
+        }
+
+
 
         public void LookClose()
         {
