@@ -17,11 +17,14 @@ namespace SecretGame_New
         public World BuildWorld()// internal
         {
             World world = new World();
+            Console.WriteLine(" Welcome to Text Adventure,prepare yourself for a fantastical journey into the unknown!!!.");
 
-            Room roomA = new Room("hallway", "You standing in a very light room, with a few signs of an other person");
+            Room roomA = new Room("hallway", "You stand at the entrance of a long hallway. The hallways gets darker ," +
+                "and you can not see what lies beyond. To the east\n is an old wooden door, unlocked it and move on. "); //skippa id
             Room roomB = new Room("kitchen", "You are standing in a very nice kitchen.\n On the floor you see nothing...\n But on the table you see an apple");
-            Room roomC = new Room("Diner", "The final room and there is just one way out");
-            Room finalRoom = new Room("Final Room", "Yay! You did it!");
+            Room roomC = new Room("Diner", "You have reached the end of a long dark hallway." +
+                "You can not  \n see no where to go but back, The final room and there is just one way out");
+            Room finalRoom = new Room("Final Room","Yay! You did it!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
