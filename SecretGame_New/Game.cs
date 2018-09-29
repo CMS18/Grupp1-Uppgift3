@@ -183,6 +183,7 @@ namespace SecretGame_New
             validinput.Add("LOOK");
             validinput.Add("TAKE");
             validinput.Add("DOOR");
+            validinput.Add("HAMMER");
 
 
 
