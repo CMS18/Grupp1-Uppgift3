@@ -237,6 +237,7 @@ namespace SecretGame_New
                 {
                     World.Player.SearchDoor(userInput);
                     command = false;
+
                     break;
                 }
 
