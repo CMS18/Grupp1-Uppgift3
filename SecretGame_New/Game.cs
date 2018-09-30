@@ -178,14 +178,13 @@ namespace SecretGame_New
             validinput.Add("MOVE");
             validinput.Add("FORWARD");
             validinput.Add("BACKWARD");
-            validinput.Add("GRAB");
+            validinput.Add("TAKE");
             validinput.Add("USE");
             validinput.Add("DROP");
-            validinput.Add("KEY");
+            validinput.Add("KEY"); 
             validinput.Add("APPLE");
             validinput.Add("INSPECT");
             validinput.Add("LOOK");
-            validinput.Add("TAKE");
             validinput.Add("DOOR");
             validinput.Add("HAMMER");
             validinput.Add("CAT");
@@ -245,25 +244,34 @@ namespace SecretGame_New
                 //var query1 = inputs.Where(x => x == "GRAB")
                 //            .Select(x => x).ToList();
 
-                if (inputs[0].ToString() == "GRAB")
+                if (inputs[0].ToString() == "TAKE")
                 {
-                    World.Player.Grab(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
+                    World.Player.Take(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
                     command = false;
                     break;
                 }
 
-                var query2 = inputs.Where(x => x == "DROP")
-                             .Select(x => x).ToList();
+                //var query2 = inputs.Where(x => x == "DROP")
+                //             .Select(x => x).ToList();
+                if (inputs[0].ToString() == "DROP")
+                {
+                    World.Player.DropItem(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
+                    command = false;
+                    break;
+                }
+
 
                 var query3 = inputs.Where(x => x == "TAKE")
                              .Select(x => x).ToList();
 
-                var query4 = inputs.Where(x => x == "INSPECT")
-                             .Select(x => x).ToList();
+                //var query4 = inputs.Where(x => x == "INSPECT")
+                //             .Select(x => x).ToList();
 
-                //  if (query[0].ToString() == "INSPECT")
+                if (inputs[0].ToString() == "INSPECT")
                 {
-                    World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
+                    World.Player.InspectItem(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
+                    command = false;
+                    break;
                 }
 
                 var query5 = inputs.Where(x => x == "USE")

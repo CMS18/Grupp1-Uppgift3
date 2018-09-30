@@ -11,8 +11,8 @@ namespace SecretGame_New
     {
         public WorldCreator() //i constructorn ska bara vara basic saker, Lägg grupperna nedan i egna metoder 
                               //under constructorn
-
-        { }
+        {
+        }
 
         public World BuildWorld()// internal
         {
@@ -23,23 +23,23 @@ namespace SecretGame_New
                 "and at the end of the hallway is an old wooden door. " +
                 "Grab the key to unlock it and move on. ");
             Room roomB = new Room("kitchen", "You are standing in a big and smokefilled kitchen. " +
-                "You can almost see nothing... But on the table you see a cat, terrified of the flames " +
-                "rising up from the floor... ");
-            Room roomC = new Room("diner", "You have reached the end of a long dark hallway." +
-                "You can not  \n see no where to go but back, The final room and there is just one way out");
+                "You can almost see nothing... ");
+            Room roomC = new Room("diner", "You have reached the dining room. On the table you see a cat, " +
+                "terrified of the flames rising up from the floor..." +
+                "On the other side of the room you see a door leading out! But you must save the cat first...");
             Room finalRoom = new Room("Final Room", "Yay! You did it!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
             world.ListOfRooms.Add(finalRoom);
 
-            Item map = new Item("An old map of the rooms in this enormous house", "map");
-            Item key = new Item("A big golden key", "key");
-            Item apple = new Item("A tasty red apple", "apple");
-            Item knife = new Item("A rusty but sharp knife", "knife");
-            Item hammer = new Item("Biggest tool ever seen", "hammer");
-            Item toy = new Item("An old fashioned doll", "plastic toy");
-            Item cat = new Item("A black cat", "cat");
+            Item map = new Item("An old map of the rooms in this enormous house", "MAP");
+            Item key = new Item("A big golden key", "KEY");
+            Item apple = new Item("A tasty red apple", "APPLE");
+            Item knife = new Item("A rusty but sharp knife", "KNIFE");
+            Item hammer = new Item("Biggest tool ever seen", "HAMMER");
+            Item toy = new Item("An old fashioned doll", "PLASTIC TOY");
+            Item cat = new Item("A black cat", "CAT");
             roomA.RoomInventory.Add(key);
             roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(hammer);

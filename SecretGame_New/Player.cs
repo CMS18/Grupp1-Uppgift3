@@ -43,11 +43,12 @@ namespace SecretGame_New
                 {
                     Console.WriteLine("Then please use it on the door.");
                     // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
-
+                    //här behöver vi fråga efter input igen (med GiveCommand)
                 }
                 else if (answer == "NO")
                 {
                     Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
+                    //här behöver vi fråga efter input igen
                 }
                 else Console.WriteLine("Try again, write YES/NO: ");
             }
@@ -55,69 +56,55 @@ namespace SecretGame_New
             {
                 PresentLocation = query[0].LeadsTo;
                 Console.WriteLine(query[0].LeadsTo.RoomName);
-                Console.WriteLine((query[0].LeadsTo.RoomDescription));
+                Console.WriteLine(query[0].LeadsTo.RoomDescription);
+                Console.WriteLine(query[0].LeadsTo.RoomInventory);
             }
         }
 
-        public void Grab(string input) //input blir item
+        public void Take(string input) //input blir item
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
                                                      .Select(d => d).ToList();
-            if (input == "KEY")
+            if (query[0] != null)
             {
-                //InHand = query[0]; //player tar upp item
-                //Console.WriteLine("You grab the " + InHand.ItemName + ".");
-                Console.WriteLine("Du grabbar nyckeln");
+                Console.WriteLine(query[0].ItemName + " taken.");
+                PlayerBag.Add(query[0]);  //lägger till item i Playerbag o tar bort från Roominventory
+                PresentLocation.RoomInventory.Remove(query[0]);
             }
-            else
+            else if (query[0] == null)
             {
                 Console.WriteLine("Sorry, there is no " + input + " in this room.");
             }
         }
         public void InspectItem(string input)
         {
-            Console.WriteLine("You are holding a " + InHand.ItemName + ".");
-            Console.WriteLine(InHand.ItemDescription); //skriver ut föremålets beskrivning
-        }
-
-        public void KeepItem(string input) //på kommando "TAKE" //byter namn till mer relevant (player stoppar inte katten i sin bag...)
-        {
-            if (InHand != null)
+            var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
+                                                    .Select(d => d).ToList();
+            if (query[0] != null)
             {
-                //lägger till item i Playerbag o tar bort från Roominventory
-                PlayerBag.Add(InHand);
-                PresentLocation.RoomInventory.Remove(InHand);
-                InHand = null;
-                Console.WriteLine("Taken.");
+                Console.WriteLine("You see a " + query[0].ItemName + ".");
+                Console.WriteLine(query[0].ItemDescription); //skriver ut föremålets beskrivning
             }
-            else
+            else if (query[0] == null)
             {
-                Console.WriteLine("You haven't got anything in your hand.");
+                Console.WriteLine("Sorry, there is no " + input + " in this room.");
             }
         }
 
         public void DropItem(string input)
         {
-            Console.WriteLine("Dropped " + InHand.ItemName + ".");
-            InHand = null;
-        }
-
-        public void ItemFromBagToRoom(string input) //på kommando "LEAVE" //ELLEN: här håller jag på och stökar
-        {
-
-            //var query = PlayerBag.Where(i => i.ItemName == input)
-            //                             .Select(d => d).ToList();
-
-            //lägger till item i Roominventory o tar bort från Playerbag
-            string text = input;
-            string[] inputs = text.Split(' ');
-            if (inputs[1] == "KEY")
+            var query = PlayerBag.Where(i => i.ItemName == input)
+                                        .Select(d => d).ToList();
+            if (query[0] != null)
             {
-                Console.WriteLine("Du lämnar nyckeln i rummet");
+                Console.WriteLine("Dropped " + query[0].ItemName + " in the room.");
+                PlayerBag.Remove(query[0]);
+                PresentLocation.RoomInventory.Add(query[0]);
             }
-
-            //PlayerBag.Remove.ToString();
-            //PresentLocation.RoomInventory.Add(query[0]);
+            else if (query[0] == null)
+            {
+                Console.WriteLine("Sorry, there is nothing to drop.");
+            }
         }
 
         public int Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
