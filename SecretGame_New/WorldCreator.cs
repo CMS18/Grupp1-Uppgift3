@@ -17,14 +17,17 @@ namespace SecretGame_New
         public World BuildWorld()// internal
         {
             World world = new World();
-            Console.WriteLine(" Welcome to Text Adventure,prepare yourself for a fantastical journey into the unknown!!!.");
 
-            Room roomA = new Room("hallway", "You stand at the entrance of a long hallway. The hallways gets darker ," +
-                "and you can not see what lies beyond. To the east\n is an old wooden door, unlocked it and move on. "); //skippa id
-            Room roomB = new Room("kitchen", "You are standing in a very nice kitchen.\n On the floor you see nothing...\n But on the table you see an apple");
-            Room roomC = new Room("Diner", "You have reached the end of a long dark hallway." +
+            Room roomA = new Room("hallway", "You now stand at the entrance of a long hallway. " +
+                "The hallways gets darker, increasingly filled with smoke, " +
+                "and at the end of the hallway is an old wooden door. " +
+                "Grab the key to unlock it and move on. ");
+            Room roomB = new Room("kitchen", "You are standing in a big and smokefilled kitchen. " +
+                "You can almost see nothing... But on the table you see a cat, terrified of the flames " +
+                "rising up from the floor... ");
+            Room roomC = new Room("diner", "You have reached the end of a long dark hallway." +
                 "You can not  \n see no where to go but back, The final room and there is just one way out");
-            Room finalRoom = new Room("Final Room","Yay! You did it!");
+            Room finalRoom = new Room("Final Room", "Yay! You did it!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
@@ -40,8 +43,6 @@ namespace SecretGame_New
             roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(hammer);
             roomC.RoomInventory.Add(apple);
-
-
 
             Door doorA = new Door(roomB, false, "EAST", "Door A");
             Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");

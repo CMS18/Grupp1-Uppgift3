@@ -7,7 +7,7 @@ using System.IO;
 
 namespace SecretGame_New
 {
-    public class Game  
+    public class Game
     {
         public World World { get; set; }
         bool invalidInput = true;
@@ -15,14 +15,19 @@ namespace SecretGame_New
 
         public void Play()
         {
+            Console.WriteLine("Welcome to Text Adventure, " +
+                              "prepare yourself for a challenging task... " +
+                              "\nPlease type in your Players name: ");
+            string nameInput = Console.ReadLine();
+            Console.WriteLine("Welcome " + nameInput + "! Your challenge takes place in a big house that is set on fire." +
+                "You are carrying an empty bag.");
+            World.Player.Look("LOOK");
             do
             {
-               
                 do
                 {
-
                     GiveCommand(); //Metod för input från spelaren. 
-                  
+
                     CheckValidWord(userInput); //Kolla om giltiga ord har angivits.
 
                 } while (invalidInput); // kontrolloop för giltiga ord.
@@ -33,7 +38,6 @@ namespace SecretGame_New
 
                 //Console.ReadKey();
 
-
             } while (World.Player.Alive == true);
 
             //här ligger spelloopen som kör tills död eller vinst
@@ -41,7 +45,7 @@ namespace SecretGame_New
             //fråga anv vad vill du göra?
             //tolka texten
             //beroende på svar, anropa rätt kommando/subrutin
-           
+
         }
 
         private void CheckOneWord(string input)
@@ -53,8 +57,8 @@ namespace SecretGame_New
             if (input.Length < 2)
             {
                 OneCommand(input);
-            } 
-           
+            }
+
         }
 
         private void OneCommand(string input)
@@ -76,7 +80,7 @@ namespace SecretGame_New
                 case "LOOK":
                     Console.WriteLine();
                     World.Player.Look(input);
-                    break;          
+                    break;
             }
 
             if (input != "HELP" && input != "QUITE" && input != "LOOK")
@@ -84,7 +88,7 @@ namespace SecretGame_New
                 Console.WriteLine(@"Invalid command, try again. Enter ""help"" if you need guidance");
             }
 
-            
+
         }
 
         private void GiveCommand()
@@ -100,11 +104,11 @@ namespace SecretGame_New
                 GiveCommand();
             }
 
-            if(inputs.Length > 2)
+            if (inputs.Length > 2)
             {
                 ThreeCommands(userInput);
             }
-            
+
         }
 
         private void ThreeCommands(string input)
@@ -161,7 +165,7 @@ namespace SecretGame_New
                 invalidInput = false;
             }
         }
-    
+
 
         private void CheckValidWord(string input)
         {
@@ -188,30 +192,30 @@ namespace SecretGame_New
 
 
             foreach (string e in validinput)
-            { 
+            {
 
-                 if (e == inputs[0])
-                 {
+                if (e == inputs[0])
+                {
                     Console.WriteLine("Okey");
                     validInputs.Add(e);
 
-                    foreach(string f in validinput)
+                    foreach (string f in validinput)
                     {
-                        if ( f == inputs[1])  
+                        if (f == inputs[1])
                         {
-                            Console.WriteLine("okey2"); 
+                            Console.WriteLine("okey2");
                             validInputs.Add(f);
                         }
 
-                    }                       
-                 }            
+                    }
+                }
             }
             if (!validinput.Contains(inputs[0]))
             {
                 Console.WriteLine("Du har skrivit fel kommando.\n Möjliga kommandon: \n Move, Drop, Use, Take, \n East, West, Key, Apple ");
             }
-            
-            if (validInputs.Count <= 2 )
+
+            if (validInputs.Count <= 2)
             {
                 invalidInput = false;
             }
@@ -223,29 +227,29 @@ namespace SecretGame_New
             string text = userInput;
             //char[] separator = new char [] { (' ') };
             string[] inputs = text.Split(' '); //separator, StringSplitOptions.RemoveEmptyEntries);
-            bool command = true; 
+            bool command = true;
 
             while (command)
-            { 
+            {
 
-                 var query = inputs.Where(x => x == "MOVE")
-                             .Select(x => x).ToList();
-            
-                 if (query[0].ToString() == "MOVE")
-                 {
+                var query = inputs.Where(x => x == "MOVE")
+                            .Select(x => x).ToList();
+
+                if (query[0].ToString() == "MOVE")
+                {
 
                     World.Player.SearchDoor(userInput);
                     command = false;
-                    break; 
-                    
-                 }
-       
+                    break;
 
-                 var query1 = inputs.Where(x => x == "GRAB")
-                             .Select(x => x).ToList();
+                }
 
-                 if (query1[0].ToString() == "GRAB")
-                 {
+
+                var query1 = inputs.Where(x => x == "GRAB")
+                            .Select(x => x).ToList();
+
+                if (query1[0].ToString() == "GRAB")
+                {
                     World.Player.Grab(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
                     command = false;
                     break;
@@ -262,7 +266,7 @@ namespace SecretGame_New
 
                 if (query[0].ToString() == "INSPECT")
                 {
-                     World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
+                    World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
                 }
 
                 var query5 = inputs.Where(x => x == "USE")
@@ -273,11 +277,11 @@ namespace SecretGame_New
                     World.Player.Use(userInput);
                 }
                 var query6 = inputs.Where(x => x == "MOVE")
-           
+
                              .Select(x => x).ToList();
             }
         }
- 
+
         internal void SetUp()
         {
             //Ska bygga världen
@@ -289,7 +293,7 @@ namespace SecretGame_New
 
 }
 
-   //Skapa instans av WorldCreator
-    //anropa WorldCreator-metoden
-    //låt WorldCreator-metoden returnera en referens till Player, hit till Game
-    //Så blir Player är den enda som är synlig här
+//Skapa instans av WorldCreator
+//anropa WorldCreator-metoden
+//låt WorldCreator-metoden returnera en referens till Player, hit till Game
+//Så blir Player är den enda som är synlig här
