@@ -50,9 +50,9 @@ namespace SecretGame_New
         {
             foreach (Door door in ListOfDoors)
             {
-                Console.WriteLine(door.DoorName + " , leads to: " + door.LeadsTo.RoomName + door.Locked); //listar rummets dörrar
+                Console.WriteLine(door.DoorName + " , leads to: " + door.LeadsTo.RoomName); //listar rummets dörrar
                 door.Locked = false; 
-                Console.WriteLine("Dörren är upplåst" + door.Locked);
+                Console.WriteLine("Dörren är upplåst");
             }
         }
         public void LookClose()

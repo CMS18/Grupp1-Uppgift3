@@ -113,7 +113,6 @@ namespace SecretGame_New
             string text = input;
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
-            Console.WriteLine("Use key on door");
 
             var query = PlayerBag.Where(i => i.ItemName.Equals(inputs[1]))
                                  .Select(d => d).ToList();
