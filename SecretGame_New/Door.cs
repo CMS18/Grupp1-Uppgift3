@@ -21,5 +21,6 @@ namespace SecretGame_New
             Direction = direction;
             Locked = locked;
         }
+      
     }
 }

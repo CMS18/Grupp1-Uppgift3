@@ -33,11 +33,9 @@ namespace SecretGame_New
 
                 } while (invalidInput); // kontrolloop för giltiga ord.
 
-                Console.WriteLine("Du är nu utanför loopen för Kolla input");
+                //Console.WriteLine("Du är nu utanför loopen för Kolla input");
 
-                CheckCommand(userInput); // kontrollera vad som skrivits in och vidarebefordra spelaren till rätt metod.             
-
-                //Console.ReadKey();
+                CheckCommand(userInput); // kontrollera vad som skrivits in och vidarebefordra spelaren till rätt metod.                           
 
             } while (World.Player.Alive == true);
 
@@ -70,8 +68,8 @@ namespace SecretGame_New
             {
                 case "HELP":
                     Console.WriteLine("As a command you can use: " +
-                        "\n MOVE EAST/WEST, GRAB ITEM, USE ITEM, " +
-                        "INSPECT ITEM, DROP ITEM, TAKE ITEM, LOOK ");
+                        "\n MOVE FORWARD/BACKWARD, TAKE ITEM, USE ITEM, " +
+                        "INSPECT ITEM, DROP ITEM, LOOK ");
                     break;
 
                 case "QUITE":
@@ -101,17 +99,17 @@ namespace SecretGame_New
             if (inputs.Length == 1)
             {
                 OneCommand(userInput);
-                GiveCommand();
+              
             }
 
             if (inputs.Length == 4)
             {
-                ThreeCommands(userInput);
-                GiveCommand();
+                FourCommands(userInput);
+               
             }        
         }
 
-        private void ThreeCommands(string input)
+        private void FourCommands(string input)
         {
             string text = input.ToUpper();
             //char[] separator = new char[] { (' ') };
@@ -123,24 +121,24 @@ namespace SecretGame_New
             validinputs.Add("DOOR");
             validinputs.Add("ON");
             validinputs.Add("CAT");
-            List<string> validInput = new List<string>(); // lista för att spara de "rätta" orden
+            List<string> wordsToInterpret = new List<string>(); // lista för att spara de "rätta" orden
 
             foreach (string e in validinputs)
             {
                 if (e == inputs[0])
                 {
-                    Console.WriteLine("Okey");
-                    validInput.Add(e);
+                    //Console.WriteLine("Okey");
+                    wordsToInterpret.Add(e);
                 }
                 if (e == inputs[1])
                 {
-                    Console.WriteLine("okey2");
-                    validInput.Add(e);
+                    //Console.WriteLine("okey2");
+                    wordsToInterpret.Add(e);
                 }
                 if (e == inputs[3])  //Ändrar från 2 till 3 här eftersom vi vill plocka ut sista ordet ur inputs
                 {
-                    Console.WriteLine("okey3");
-                    validInput.Add(e);
+                   // Console.WriteLine("okey3");
+                    wordsToInterpret.Add(e);
                 }
                 //foreach (string f in validinputs) // GÅR INTE HA 3 foreach...!
                 //{
@@ -161,7 +159,7 @@ namespace SecretGame_New
                 //    }
                 //}
             }
-            if (validInput.Count <= 3)
+            if (wordsToInterpret.Count <= 3)
             {
                 invalidInput = false;
             }
@@ -195,14 +193,14 @@ namespace SecretGame_New
 
                 if (e == inputs[0])
                 {
-                    Console.WriteLine("Okey");
+                    //Console.WriteLine("Okey");
                     validInputs.Add(e);
 
                     foreach (string f in validinput)
                     {
                         if (f == inputs[1])
                         {
-                            Console.WriteLine("okey2");
+                            //Console.WriteLine("okey2");
                             validInputs.Add(f);
                         }
 

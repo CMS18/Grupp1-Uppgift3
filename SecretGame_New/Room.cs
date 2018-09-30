@@ -46,9 +46,15 @@ namespace SecretGame_New
                 Console.WriteLine(item.ItemName);
             }
         }
-
-
-
+        public void FindDoor(Room presentLocation)
+        {
+            foreach (Door door in ListOfDoors)
+            {
+                Console.WriteLine(door.DoorName + " , leads to: " + door.LeadsTo.RoomName + door.Locked); //listar rummets dörrar
+                door.Locked = false; 
+                Console.WriteLine("Dörren är upplåst" + door.Locked);
+            }
+        }
         public void LookClose()
         {
 

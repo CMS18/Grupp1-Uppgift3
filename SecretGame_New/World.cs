@@ -12,6 +12,7 @@ namespace SecretGame_New
         public Player Player { get; set; }
         public List<Door> ListOfDoors { get; set; } // lagt till
         public List<Item> RoomInventory  { get; set; }
+      
         //public List<Item> ListOfItemsPlayer { get; set; } //lagt till
         //public List<Item> ListOfItemsRoom { get; set; } //lagt till
 
@@ -21,6 +22,7 @@ namespace SecretGame_New
             ListOfRooms = new List<Room>();
             ListOfDoors = new List<Door>();
             RoomInventory = new List<Item>();
+           
         }
     }
 }

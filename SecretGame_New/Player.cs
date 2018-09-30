@@ -37,20 +37,20 @@ namespace SecretGame_New
 
             if (query[0].Locked == true)
             {
-                Console.WriteLine("Door locked! Do you have a key? YES/NO: ");
-                string answer = Console.ReadLine();
-                if (answer == "YES")
-                {
-                    Console.WriteLine("Then please use it on the door.");
-                    // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
-                    //här behöver vi fråga efter input igen (med GiveCommand)
-                }
-                else if (answer == "NO")
-                {
-                    Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
-                    //här behöver vi fråga efter input igen
-                }
-                else Console.WriteLine("Try again, write YES/NO: ");
+                Console.WriteLine("Door locked!  "); //Do you have a key? YES/ NO:
+                //string answer = Console.ReadLine();
+                //if (answer == "YES")
+                //{
+                //    Console.WriteLine("Then please use it on the door.");
+                //    // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
+                //    //här behöver vi fråga efter input igen (med GiveCommand)
+                //}
+                //else if (answer == "NO")
+                //{
+                //    Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
+                //    //här behöver vi fråga efter input igen
+                //}
+                //else Console.WriteLine("Try again, write YES/NO: ");
             }
             else
             {
@@ -108,19 +108,27 @@ namespace SecretGame_New
             }
         }
 
-        public int Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        public void Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
         {
             string text = input;
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
             Console.WriteLine("Use key on door");
-            var query = PlayerBag.Where(i => i.ItemName == input)
+
+            var query = PlayerBag.Where(i => i.ItemName.Equals(inputs[1]))
                                  .Select(d => d).ToList();
             if (query[0].ItemName =="KEY")
             {
-                Console.WriteLine("Doors in room:" + PresentLocation.ListOfDoors);
+                PresentLocation.FindDoor(PresentLocation);
+                
             }
-           // PresentLocation.ListOfDoors
+            if (query[0].ItemName != "KEY")
+            {
+                Console.WriteLine("Sorry you need to find the key first");
+
+            }
+
+            // PresentLocation.ListOfDoors
             //if (PlayerBag.Contains(input[1]).ToString())
 
             //if (InHand.ToString().Contains(inputs[1]))
@@ -131,8 +139,6 @@ namespace SecretGame_New
 
             //    }
             //}
-
-            throw new NotImplementedException();
         }
 
         public void Look(string input)
