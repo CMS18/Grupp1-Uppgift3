@@ -46,7 +46,7 @@ namespace SecretGame_New
             roomC.RoomInventory.Add(apple);
             roomC.RoomInventory.Add(cat);
 
-            Door doorA = new Door(roomB, false, "FORWARD", "Door A");
+            Door doorA = new Door(roomB, true, "FORWARD", "Old wooden door");
             Door doorBBackward = new Door(roomA, false, "BACKWARD", "Door BBackward");
             Door doorBEast = new Door(roomC, false, "FORWARD", "Door BForward");
             Door doorCBackward = new Door(roomB, false, "BACKWARD", "Door CBackward");

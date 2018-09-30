@@ -30,5 +30,6 @@ namespace SecretGame_New
             Locked = locked;
             GameOver = false;
         }
+      
     }
 }
