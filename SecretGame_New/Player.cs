@@ -38,26 +38,21 @@ namespace SecretGame_New
             if (query[0].Locked == true)
             {
                 Console.WriteLine("Door locked! Do you have a key? YES/NO: ");
-                string answer = Console.ReadLine();
+                string answer = Console.ReadLine().ToUpper();
                 if (answer == "YES")
                 {
                     Console.WriteLine("Then please use it on the door.");
-                    // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
-                    //här behöver vi fråga efter input igen (med GiveCommand)
                 }
                 else if (answer == "NO")
                 {
                     Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
-                    //här behöver vi fråga efter input igen
                 }
-                else Console.WriteLine("Try again, write YES/NO: ");
+                else Console.WriteLine("Try again, write YES/NO: ");  //här behöver vi fråga efter input igen
+
             }
             else
             {
-                PresentLocation = query[0].LeadsTo;
-                Console.WriteLine(query[0].LeadsTo.RoomName);
-                Console.WriteLine(query[0].LeadsTo.RoomDescription);
-                Console.WriteLine(query[0].LeadsTo.RoomInventory);
+                EnterNewRoom(input);
             }
         }
 
@@ -116,11 +111,11 @@ namespace SecretGame_New
             Console.WriteLine("Use key on door");
             var query = PlayerBag.Where(i => i.ItemName == input)
                                  .Select(d => d).ToList();
-            if (query[0].ItemName =="KEY")
+            if (query[0].ItemName == "KEY")
             {
                 Console.WriteLine("Doors in room:" + PresentLocation.ListOfDoors);
             }
-           // PresentLocation.ListOfDoors
+            // PresentLocation.ListOfDoors
             //if (PlayerBag.Contains(input[1]).ToString())
 
             //if (InHand.ToString().Contains(inputs[1]))
@@ -137,21 +132,26 @@ namespace SecretGame_New
 
         public void Look(string input)
         {
-            Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
-            PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
+            PresentLocation.PrintDescription(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
 
-        // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
-        //public void EnterNewRoom()
-        //{
-        //    var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
-        //           .Select(i => i).ToList();
-        //    var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
-        //                                           .Select(d => d).ToList();
-        //    PresentLocation = query[0].LeadsTo;
-        //    Console.WriteLine(query[0].LeadsTo.RoomName);
-        //    Console.WriteLine((query[0].LeadsTo.RoomDescription));
-        //}
+        public void EnterNewRoom(string input)
+        {
+            string text = input;
+            string[] inputs = text.Split(' ');
+            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")
+                    .Select(i => i).ToList();
+
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
+                                                   .Select(d => d).ToList();
+
+            PresentLocation = query[0].LeadsTo;
+            Console.WriteLine(query[0].LeadsTo.RoomName);
+            PresentLocation.PrintDescription(PresentLocation);
+            //Console.WriteLine(query[0].LeadsTo.RoomDescription);
+            //Console.WriteLine(query[0].LeadsTo.RoomInventory); //funkar inte skriva ut lista
+
+        }
 
 
     }

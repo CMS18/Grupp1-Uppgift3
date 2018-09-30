@@ -11,7 +11,7 @@ namespace SecretGame_New
         public string DoorName { get; set; }
         public Room LeadsTo { get; set; }
         public string Direction { get; set; }
-        public bool Locked { get; set; } //open,locked.
+        public bool Locked { get; set; }
 
         public Door(Room leadsTO, bool locked, string direction, string doorname )
             

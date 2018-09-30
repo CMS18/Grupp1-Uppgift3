@@ -22,16 +22,16 @@ namespace SecretGame_New
             ListOfDoors = new List<Door>() { };
         }
 
-        public void PrintDescription(Room room) //på kommando LOOK //argument: Room eller en input-string?
+        public void PrintDescription(Room room)
         {
             Console.WriteLine(RoomDescription);
-            Console.WriteLine("The items you can see in this room are: ");
+            Console.WriteLine("\nThe items you can see in this room are: ");
             foreach (Item item in RoomInventory)
             {
-                Console.WriteLine(item.ItemName + ": " + item.ItemDescription); //listar rummets föremål
+                Console.WriteLine(item.ItemName); //listar rummets föremål
             }
 
-            Console.WriteLine("The exits from this room are: ");
+            Console.WriteLine("\nThe exits from this room are: ");
             foreach (Door door in ListOfDoors)
             {
                 Console.WriteLine(door.DoorName + ", leads to: " + door.LeadsTo.RoomName); //listar rummets dörrar

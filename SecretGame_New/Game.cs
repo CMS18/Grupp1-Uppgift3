@@ -20,8 +20,8 @@ namespace SecretGame_New
                               "\nPlease type in your Players name: ");
             World.Player.PlayerName = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Welcome " + World.Player.PlayerName + "! Your challenge takes place in a big house that is set on fire." +
-                "You are carrying an empty bag.");
+            Console.WriteLine("Welcome " + World.Player.PlayerName + "!\nYour challenge takes place in a big house that is set on fire." +
+                " Is there someone who needs to be saved here? \nYou are carrying an empty bag. ");
             World.Player.Look("LOOK");
             do
             {
@@ -41,14 +41,55 @@ namespace SecretGame_New
 
             } while (World.Player.Alive == true);
 
-            //här ligger spelloopen som kör tills död eller vinst
-            //innehålla: skriv ut location, 
-            //fråga anv vad vill du göra?
-            //tolka texten
-            //beroende på svar, anropa rätt kommando/subrutin
-
         }
+        public void CheckCommand(string userInput)
+        {
+            string text = userInput;
+            //char[] separator = new char [] { (' ') };
+            string[] inputs = text.Split(' '); //separator, StringSplitOptions.RemoveEmptyEntries);
+            bool command = true;
 
+            while (command)
+            {
+                //var query = inputs.Where(x => x == "MOVE")
+                //                  .Select(x => x);
+
+                if (inputs[0].ToString() == "MOVE")
+                {
+                    World.Player.SearchDoor(userInput);
+                    command = false;
+                    break;
+                }
+
+                if (inputs[0].ToString() == "TAKE")
+                {
+                    World.Player.Take(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
+                    command = false;
+                    break;
+                }
+
+                if (inputs[0].ToString() == "DROP")
+                {
+                    World.Player.DropItem(inputs[1]);
+                    command = false;
+                    break;
+                }
+
+                if (inputs[0].ToString() == "USE")
+                {
+                    World.Player.Use(userInput);
+                    command = false;
+                    break;
+                }
+
+                if (inputs[0].ToString() == "INSPECT")
+                {
+                    World.Player.InspectItem(inputs[1]);
+                    command = false;
+                    break;
+                }
+            }
+        }
         private void CheckOneWord(string input)
         {
             string text = input.ToUpper();
@@ -63,18 +104,18 @@ namespace SecretGame_New
 
         private void OneCommand(string input)
         {
-            List<string> oneWord = new List<string>() { "help", "quite", "look" };
+            List<string> oneWord = new List<string>() { "help", "quit", "look" };
 
             string value = input;
             switch (value)
             {
                 case "HELP":
                     Console.WriteLine("As a command you can use: " +
-                        "\n MOVE EAST/WEST, GRAB ITEM, USE ITEM, " +
-                        "INSPECT ITEM, DROP ITEM, TAKE ITEM, LOOK ");
+                        "\nMOVE FORWARD/BACKWARD, TAKE ITEM, USE ITEM, " +
+                        "INSPECT ITEM, DROP ITEM, LOOK ");
                     break;
 
-                case "QUITE":
+                case "QUIT":
                     Console.WriteLine("See you later!");
                     World.Player.Alive = false;
                     break;
@@ -85,7 +126,7 @@ namespace SecretGame_New
                     break;
             }
 
-            if (input != "HELP" && input != "QUITE" && input != "LOOK")
+            if (input != "HELP" && input != "QUIT" && input != "LOOK")
             {
                 Console.WriteLine(@"Invalid command, try again. Enter ""help"" if you need guidance");
             }
@@ -93,7 +134,7 @@ namespace SecretGame_New
 
         private void GiveCommand()
         {
-            Console.WriteLine("Type in your next move");
+            Console.WriteLine("\nType in your next move");
             userInput = Console.ReadLine().ToUpper();
             string text = userInput.ToUpper();
             string[] inputs = text.Split(' ');
@@ -211,7 +252,10 @@ namespace SecretGame_New
             }
             if (!validinput.Contains(inputs[0]))
             {
-                Console.WriteLine("Du har skrivit fel kommando.\n Möjliga kommandon: \n Move, Drop, Use, Take, \n East, West, Key, Apple ");
+                Console.WriteLine("As a command you can use: " +
+                    "\nMOVE FORWARD/BACKWARD, TAKE ITEM, USE ITEM, " +
+                    "INSPECT ITEM, DROP ITEM, LOOK ");
+                GiveCommand();
             }
 
             if (validInputs.Count <= 2)
@@ -221,84 +265,11 @@ namespace SecretGame_New
 
         }
 
-        public void CheckCommand(string userInput)
-        {
-            string text = userInput;
-            //char[] separator = new char [] { (' ') };
-            string[] inputs = text.Split(' '); //separator, StringSplitOptions.RemoveEmptyEntries);
-            bool command = true;
-
-            while (command)
-            {
-                //var query = inputs.Where(x => x == "MOVE")
-                //                  .Select(x => x);
-
-                if (inputs[0].ToString() == "MOVE")
-                {
-                    World.Player.SearchDoor(userInput);
-                    command = false;
-
-                    break;
-                }
-
-
-                //var query1 = inputs.Where(x => x == "GRAB")
-                //            .Select(x => x).ToList();
-
-                if (inputs[0].ToString() == "TAKE")
-                {
-                    World.Player.Take(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
-                    command = false;
-                    break;
-                }
-
-                //var query2 = inputs.Where(x => x == "DROP")
-                //             .Select(x => x).ToList();
-                if (inputs[0].ToString() == "DROP")
-                {
-                    World.Player.DropItem(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
-                    command = false;
-                    break;
-                }
-
-                if(inputs[0].ToString() == "USE")
-                {
-                    World.Player.Use(userInput);
-                    command = false;
-                    break;
-                }
-                //var query2 = inputs.Where(x => x == "DROP")
-                //             .Select(x => x).ToList();
-
-                //var query3 = inputs.Where(x => x == "TAKE")
-                //             .Select(x => x).ToList();
-
-                //var query4 = inputs.Where(x => x == "INSPECT")
-                //             .Select(x => x).ToList();
-
-                if (inputs[0].ToString() == "INSPECT")
-                {
-                    World.Player.InspectItem(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
-                    command = false;
-                    break;
-                }
-
-                //var query5 = inputs.Where(x => x == "USE")
-                //             .Select(x => x).ToList();
-
-                //if (query5[0].ToString() == "USE")
-                //{
-                //    World.Player.Use(userInput);
-                //}
-                //var query6 = inputs.Where(x => x == "MOVE")
-
-                //             .Select(x => x).ToList();
-            }
-        }
+        
 
         internal void SetUp()
         {
-            //Ska bygga världen
+            //bygger världen
             WorldCreator creator = new WorldCreator();
             World = creator.BuildWorld();
 

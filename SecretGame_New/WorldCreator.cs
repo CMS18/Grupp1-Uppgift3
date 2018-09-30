@@ -18,16 +18,16 @@ namespace SecretGame_New
         {
             World world = new World();
 
-            Room roomA = new Room("hallway", "You now stand at the entrance of a long hallway. " +
-                "The hallways gets darker, increasingly filled with smoke, " +
-                "and at the end of the hallway is an old wooden door. " +
-                "Grab the key to unlock it and move on. ");
+            Room roomA = new Room("hallway", "You stand at the entrance of a long hallway, " +
+                "increasingly filled with smoke, " +
+                "At the end of the hallway there is an old wooden door. " +
+                "Can you find a key to unlock it? ");
             Room roomB = new Room("kitchen", "You are standing in a big and smokefilled kitchen. " +
                 "You can almost see nothing... ");
             Room roomC = new Room("diner", "You have reached the dining room. On the table you see a cat, " +
                 "terrified of the flames rising up from the floor..." +
-                "On the other side of the room you see a door leading out! But you must save the cat first...");
-            Room finalRoom = new Room("Final Room", "Yay! You did it!");
+                "On the other side of the room you see a door leading out! But you must get the cat first...");
+            Room finalRoom = new Room("Final Room", "Yay! You did it! You are outside, and got the cat with you!");
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
