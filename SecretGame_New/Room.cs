@@ -64,6 +64,13 @@ namespace SecretGame_New
             if (inputs.Contains("CAT") && inputs.Contains("TOY"))
             {
                 Console.WriteLine(" The toy worked. The cat lets you pick it up");//PresentLocation.FindDoor(PresentLocation);
+                foreach(Door door in ListOfDoors)
+                {
+                    if(door.DoorName == "Exit")
+                    {
+                        door.Locked = false; 
+                    }
+                }
             }
           
 
