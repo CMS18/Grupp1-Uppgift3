@@ -12,6 +12,7 @@ namespace SecretGame_New
         public string RoomName { get; set; }
         public string RoomDescription { get; set; }
         public List<Door> ListOfDoors { get; set; }
+        public bool GameOver { get; set; }
 
 
         public Room(string name, string description)
@@ -20,6 +21,14 @@ namespace SecretGame_New
             RoomDescription = description;
             RoomInventory = new List<Item>() { };
             ListOfDoors = new List<Door>() { };
+        }
+        public Room(string name, string description, bool gameOver)
+        {
+            RoomName = name;
+            RoomDescription = description;
+            RoomInventory = new List<Item>() { };
+            ListOfDoors = new List<Door>() { };
+            GameOver = true;
         }
 
         public void PrintDescription(Room room)
