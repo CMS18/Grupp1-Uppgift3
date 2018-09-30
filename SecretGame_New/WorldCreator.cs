@@ -39,21 +39,23 @@ namespace SecretGame_New
             Item knife = new Item("A rusty but sharp knife", "knife");
             Item hammer = new Item("Biggest tool ever seen", "hammer");
             Item toy = new Item("An old fashioned doll", "plastic toy");
+            Item cat = new Item("A black cat", "cat");
             roomA.RoomInventory.Add(key);
             roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(hammer);
             roomC.RoomInventory.Add(apple);
+            roomC.RoomInventory.Add(cat);
 
-            Door doorA = new Door(roomB, false, "EAST", "Door A");
-            Door doorBWest = new Door(roomA, false, "WEST", "Door BWest");
-            Door doorBEast = new Door(roomC, false, "EAST", "Door BEast");
-            Door doorCWest = new Door(roomB, false, "WEST", "Door CWest");
-            Door doorCEast = new Door(finalRoom, false, "EAST", "Door CEast");
+            Door doorA = new Door(roomB, false, "FORWARD", "Door A");
+            Door doorBBackward = new Door(roomA, false, "BACKWARD", "Door BBackward");
+            Door doorBEast = new Door(roomC, false, "FORWARD", "Door BForward");
+            Door doorCBackward = new Door(roomB, false, "BACKWARD", "Door CBackward");
+            Door doorCForward = new Door(finalRoom, false, "FORWARD", "Door CForward");
             roomA.ListOfDoors.Add(doorA);
-            roomB.ListOfDoors.Add(doorBWest);
+            roomB.ListOfDoors.Add(doorBBackward);
             roomB.ListOfDoors.Add(doorBEast);
-            roomC.ListOfDoors.Add(doorCWest);
-            roomC.ListOfDoors.Add(doorCEast);
+            roomC.ListOfDoors.Add(doorCBackward);
+            roomC.ListOfDoors.Add(doorCForward);
 
             world.Player = new Player("Catwoman", "Fast, smooth, smart", roomA, true);
             world.Player.PlayerBag.Add(toy);

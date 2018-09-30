@@ -29,7 +29,7 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-            var query1 = inputs.Where(i => i == "EAST" || i == "WEST")  // kollar vad väderstrecket ligger i input-listan
+            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
                                 .Select(i => i).ToList();
 
             var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
@@ -37,8 +37,19 @@ namespace SecretGame_New
 
             if (query[0].Locked == true)
             {
-                Console.WriteLine("Door locked! Do you have a key?");
-                
+                Console.WriteLine("Door locked! Do you have a key? YES/NO: ");
+                string answer = Console.ReadLine();
+                if (answer == "YES")
+                {
+                    Console.WriteLine("Then please use it on the door.");
+                    Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
+
+                }
+                else if (answer == "NO")
+                {
+                    Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
+                }
+                else Console.WriteLine("Try again, write YES/NO: ");
             }
             else
             {
@@ -48,7 +59,7 @@ namespace SecretGame_New
             }
         }
 
-        public void Grab(string input)
+        public void Grab(string input) //input blir item
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
                                                      .Select(d => d).ToList();
@@ -68,7 +79,7 @@ namespace SecretGame_New
             Console.WriteLine(InHand.ItemDescription); //skriver ut föremålets beskrivning
         }
 
-        public void PutItemInBag(string input) //på kommando "TAKE"
+        public void KeepItem(string input) //på kommando "TAKE" //byter namn till mer relevant (player stoppar inte katten i sin bag...)
         {
             if (InHand != null)
             {
@@ -106,9 +117,13 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-           if(PlayerBag.ToString().Contains(inputs[1]))
+            if (InHand.ToString().Contains(inputs[1]))
             {
+                if (inputs[1] == "KEY" && inputs[3] == "DOOR")
+                {
+                    Console.WriteLine("Door opened! You are now moving into the next room...");
 
+                }
             }
 
             throw new NotImplementedException();
@@ -119,6 +134,19 @@ namespace SecretGame_New
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
             PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
+
+       // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
+        //public void EnterNewRoom()
+        //{
+        //    var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
+        //           .Select(i => i).ToList();
+        //    var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
+        //                                           .Select(d => d).ToList();
+        //    PresentLocation = query[0].LeadsTo;
+        //    Console.WriteLine(query[0].LeadsTo.RoomName);
+        //    Console.WriteLine((query[0].LeadsTo.RoomDescription));
+        //}
+
 
     }
 }
