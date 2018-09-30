@@ -27,7 +27,7 @@ namespace SecretGame_New
             Room roomC = new Room("diner", "You have reached the dining room. On the table you see a cat, " +
                 "terrified of the flames rising up from the floor..." +
                 "On the other side of the room you see a door leading out! But you must get the cat first...");
-            Room finalRoom = new Room("Final Room", "Yay! You did it! You are outside, and got the cat with you!");
+            Room finalRoom = new Room("Final Room", "Yay! You are outside, and got the cat with you! You did it! \nGAME OVER", true);
             world.ListOfRooms.Add(roomA);
             world.ListOfRooms.Add(roomB);
             world.ListOfRooms.Add(roomC);
@@ -50,7 +50,7 @@ namespace SecretGame_New
             Door doorBBackward = new Door(roomA, false, "BACKWARD", "Door BBackward");
             Door doorBEast = new Door(roomC, false, "FORWARD", "Door BForward");
             Door doorCBackward = new Door(roomB, false, "BACKWARD", "Door CBackward");
-            Door doorCForward = new Door(finalRoom, false, "FORWARD", "Door CForward", true);
+            Door doorCForward = new Door(finalRoom, false, "FORWARD", "Door CForward");
             roomA.ListOfDoors.Add(doorA);
             roomB.ListOfDoors.Add(doorBBackward);
             roomB.ListOfDoors.Add(doorBEast);

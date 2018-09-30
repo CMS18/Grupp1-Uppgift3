@@ -37,20 +37,7 @@ namespace SecretGame_New
 
             if (query[0].Locked == true)
             {
-                Console.WriteLine("Door locked!  "); //Do you have a key? YES/ NO:
-                //string answer = Console.ReadLine();
-                //if (answer == "YES")
-                //{
-                //    Console.WriteLine("Then please use it on the door.");
-                //    // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
-                //    //här behöver vi fråga efter input igen (med GiveCommand)
-                //}
-                //else if (answer == "NO")
-                //{
-                //    Console.WriteLine("Sorry, you've got to find the key first. Take a LOOK again?");
-                //    //här behöver vi fråga efter input igen
-                //}
-                //else Console.WriteLine("Try again, write YES/NO: ");
+                Console.WriteLine("Door locked!  ");
             }
             else
             {
@@ -58,7 +45,7 @@ namespace SecretGame_New
             }
         }
 
-        public void Take(string input) //input blir item
+        public void Take(string input)
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
                                                      .Select(d => d).ToList();
@@ -105,7 +92,7 @@ namespace SecretGame_New
             }
         }
 
-        public void Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        public void Use(string input)
         {
             string text = input;
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
@@ -116,30 +103,18 @@ namespace SecretGame_New
             if (query[0].ItemName == "KEY")
             {
                 PresentLocation.FindDoor(PresentLocation);
-                
+
             }
             if (query[0].ItemName != "KEY")
             {
                 Console.WriteLine("Sorry you need to find the key first");
 
             }
-
-            // PresentLocation.ListOfDoors
-            //if (PlayerBag.Contains(input[1]).ToString())
-
-            //if (InHand.ToString().Contains(inputs[1]))
-            //{
-            //    if (inputs[1] == "KEY" && inputs[3] == "DOOR")
-            //    {
-            //        Console.WriteLine("Door opened! You are now moving into the next room...");
-
-            //    }
-            //}
         }
 
         public void Look(string input)
         {
-            PresentLocation.PrintDescription(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
+            PresentLocation.PrintDescription(PresentLocation); //skriver ut rummets beskrivning och föremål
         }
 
         public void EnterNewRoom(string input)
@@ -151,18 +126,18 @@ namespace SecretGame_New
 
             var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
                                                    .Select(d => d).ToList();
-            //var query2 = PresentLocation.ListOfDoors.Where(d => d.GameOver == true)
-            //                                       .Select(d => d).ToList();
-            //if (query2[0].GameOver == true)
-            //{
-            //    PresentLocation = query[0].LeadsTo;
-            //    Alive = false;
-            //}
-
             PresentLocation = query[0].LeadsTo;
-            Console.WriteLine(query[0].LeadsTo.RoomName);
-            PresentLocation.PrintDescription(PresentLocation);
 
+            if (PresentLocation.GameOver == true)
+            {
+                Console.WriteLine(query[0].LeadsTo.RoomName);
+                Console.WriteLine(PresentLocation.RoomDescription);
+                Alive = false;
+            }
+            else
+            {
+                PresentLocation.PrintDescription(PresentLocation);
+            }
         }
 
 
