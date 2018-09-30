@@ -29,6 +29,8 @@ namespace SecretGame_New
                 {
                     GiveCommand(); //Metod för input från spelaren. 
 
+                    CheckOneWord(userInput); //kollar om endast 1 ord i input
+
                     CheckValidWord(userInput); //Kolla om giltiga ord har angivits.
 
                 } while (invalidInput); // kontrolloop för giltiga ord.
@@ -92,6 +94,12 @@ namespace SecretGame_New
                     command = false;
                     break;
                 }
+                if (inputs[0].ToString() == "LOOK")
+                {
+                    World.Player.Look("LOOK");
+                    command = false;
+                    break;
+                }
             }
         }
         private void CheckOneWord(string input)
@@ -146,14 +154,14 @@ namespace SecretGame_New
             if (inputs.Length == 1)
             {
                 OneCommand(userInput);
-              
+
             }
 
             if (inputs.Length == 4)
             {
                 FourCommands(userInput);
-               
-            }        
+
+            }
         }
 
         private void FourCommands(string input)
@@ -184,10 +192,10 @@ namespace SecretGame_New
                 }
                 if (e == inputs[3])  //Ändrar från 2 till 3 här eftersom vi vill plocka ut sista ordet ur inputs
                 {
-                   // Console.WriteLine("okey3");
+                    // Console.WriteLine("okey3");
                     wordsToInterpret.Add(e);
                 }
-           
+
             }
             if (wordsToInterpret.Count <= 3)
             {
@@ -209,7 +217,7 @@ namespace SecretGame_New
             validinput.Add("TAKE");
             validinput.Add("USE");
             validinput.Add("DROP");
-            validinput.Add("KEY"); 
+            validinput.Add("KEY");
             validinput.Add("APPLE");
             validinput.Add("INSPECT");
             validinput.Add("LOOK");
@@ -228,12 +236,11 @@ namespace SecretGame_New
 
                     foreach (string f in validinput)
                     {
-                        if (f == inputs[1])
+                        if (f == inputs[1])   //varför hamnar man här, när man skriver LOOK? Kollar vi inte OneWord först?
                         {
                             //Console.WriteLine("okey2");
                             validInputs.Add(f);
                         }
-
                     }
                 }
             }
@@ -251,7 +258,7 @@ namespace SecretGame_New
             }
 
         }
-        
+
         internal void SetUp()
         {
             //bygger världen

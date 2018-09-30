@@ -59,9 +59,9 @@ namespace SecretGame_New
         {
             foreach (Door door in ListOfDoors)
             {
-                Console.WriteLine(door.DoorName + " , leads to: " + door.LeadsTo.RoomName); //listar rummets dörrar
-                door.Locked = false; 
-                Console.WriteLine("Dörren är upplåst");
+                Console.WriteLine(door.DoorName + ", leads to: " + door.LeadsTo.RoomName); //listar rummets dörrar
+                door.Locked = false;
+                Console.WriteLine("Door unlocked.");
             }
         }
         public void GiveCat(string input/*presentLocation, item (userInput), item2 (userInput)*/)
@@ -72,23 +72,16 @@ namespace SecretGame_New
 
             if (inputs.Contains("CAT") && inputs.Contains("TOY"))
             {
-                Console.WriteLine(" The toy worked. The cat lets you pick it up");//PresentLocation.FindDoor(PresentLocation);
-                foreach(Door door in ListOfDoors)
+                Console.WriteLine("The toy worked. The cat lets you pick it up.");//PresentLocation.FindDoor(PresentLocation);
+                foreach (Door door in ListOfDoors)
                 {
-                    if(door.DoorName == "Exit")
+                    if (door.DoorName == "Exit")
                     {
-                        door.Locked = false; 
+                        door.Locked = false;
                     }
                 }
             }
-          
-
         }
-        public void LookClose()
-        {
-
-        }
-
     }
 
 }

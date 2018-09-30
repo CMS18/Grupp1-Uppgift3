@@ -19,7 +19,7 @@ namespace SecretGame_New
             World world = new World();
 
             Room roomA = new Room("hallway", "You stand at the entrance of a long hallway, " +
-                "increasingly filled with smoke, " +
+                "increasingly filled with smoke. " +
                 "At the end of the hallway there is an old wooden door. " +
                 "Can you find a key to unlock it? ");
             Room roomB = new Room("kitchen", "You are standing in a big and smokefilled kitchen. " +
@@ -43,17 +43,19 @@ namespace SecretGame_New
             roomA.RoomInventory.Add(key);
             roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(hammer);
+            roomB.RoomInventory.Add(knife);
             roomC.RoomInventory.Add(apple);
+            roomC.RoomInventory.Add(toy);
             roomC.RoomInventory.Add(cat);
 
             Door doorA = new Door(roomB, true, "FORWARD", "Old wooden door");
-            Door doorBBackward = new Door(roomA, false, "BACKWARD", "Door BBackward");
-            Door doorBEast = new Door(roomC, false, "FORWARD", "Black wooden door");
-            Door doorCBackward = new Door(roomB, false, "BACKWARD", "Door CBackward");
+            Door doorBBackward = new Door(roomA, false, "BACKWARD", "Old wooden door");
+            Door doorBForward = new Door(roomC, false, "FORWARD", "Black wooden door");
+            Door doorCBackward = new Door(roomB, false, "BACKWARD", "Black wooden door");
             Door doorCForward = new Door(finalRoom, true, "FORWARD", "Exit");
             roomA.ListOfDoors.Add(doorA);
             roomB.ListOfDoors.Add(doorBBackward);
-            roomB.ListOfDoors.Add(doorBEast);
+            roomB.ListOfDoors.Add(doorBForward);
             roomC.ListOfDoors.Add(doorCBackward);
             roomC.ListOfDoors.Add(doorCForward);
 
