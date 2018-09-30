@@ -121,23 +121,35 @@ namespace SecretGame_New
                 PresentLocation.FindDoor(PresentLocation);
                 
             }
-            if (query[0].ItemName != "KEY")
+            if (query[0].ItemName !="KEY")
             {
                 Console.WriteLine("Sorry you need to find the key first");
 
             }
 
-            // PresentLocation.ListOfDoors
-            //if (PlayerBag.Contains(input[1]).ToString())
+        }
+        public void Give(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        {
+            string text = input;
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
 
-            //if (InHand.ToString().Contains(inputs[1]))
-            //{
-            //    if (inputs[1] == "KEY" && inputs[3] == "DOOR")
-            //    {
-            //        Console.WriteLine("Door opened! You are now moving into the next room...");
+            
 
-            //    }
-            //}
+            var query = PresentLocation.RoomInventory.Where(i => i.ItemName.Equals(inputs[1]))
+                                 .Select(d => d).ToList();
+            var query1 = PlayerBag.Where(j => j.ItemName.Equals(inputs[2]))
+                                  .Select(f => f).ToList();
+            if (query[0].ItemName == "CAT" )
+            {
+                Console.WriteLine(" The cat  and toy");//PresentLocation.FindDoor(PresentLocation);
+
+            }
+            if(query1[0].ItemName == "TOY")
+            {
+                Console.WriteLine("toy");
+            }
+
         }
 
         public void Look(string input)

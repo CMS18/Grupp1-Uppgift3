@@ -187,6 +187,7 @@ namespace SecretGame_New
             validinput.Add("DOOR");
             validinput.Add("HAMMER");
             validinput.Add("CAT");
+            validinput.Add("GIVE"); //use item on item Give Cat an apple
 
             foreach (string e in validinput)
             {
@@ -262,6 +263,12 @@ namespace SecretGame_New
                 if(inputs[0].ToString() == "USE")
                 {
                     World.Player.Use(userInput);
+                    command = false;
+                    break;
+                }
+                if (inputs[0].ToString() == "GIVE")
+                {
+                    World.Player.Give(userInput);
                     command = false;
                     break;
                 }
