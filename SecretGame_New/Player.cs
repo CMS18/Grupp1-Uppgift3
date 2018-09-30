@@ -133,7 +133,13 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-            PresentLocation.GiveCat(input);
+            var query = PresentLocation.RoomInventory.Where(i => i.ItemName.Equals(inputs[1]))
+                                                     .Select(d => d).ToList();
+            if(query[0].ItemName == "CAT")
+            {
+                PresentLocation.GiveCat(input);
+            }
+           
         }
 
         public void Look(string input)
