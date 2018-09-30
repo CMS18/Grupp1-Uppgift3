@@ -235,11 +235,12 @@ namespace SecretGame_New
                 var query = inputs.Where(x => x == "MOVE")
                             .Select(x => x).ToList();
 
-                if (query[0].ToString() == "MOVE")
+                if (query[0].ToString().Contains("MOVE"))
                 {
 
                     World.Player.SearchDoor(userInput);
                     command = false;
+
                     break;
 
                 }
