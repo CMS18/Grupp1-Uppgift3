@@ -64,6 +64,30 @@ namespace SecretGame_New
                 Console.WriteLine("Dörren är upplåst");
             }
         }
+        public void GiveCat(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        {
+            string text = input;
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
+
+            if (inputs.Contains("CAT") && inputs.Contains("TOY"))
+            {
+                Console.WriteLine(" The toy worked. The cat lets you pick it up");//PresentLocation.FindDoor(PresentLocation);
+                foreach(Door door in ListOfDoors)
+                {
+                    if(door.DoorName == "Exit")
+                    {
+                        door.Locked = false; 
+                    }
+                }
+            }
+          
+
+        }
+        public void LookClose()
+        {
+
+        }
 
     }
 

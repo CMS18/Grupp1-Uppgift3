@@ -48,9 +48,9 @@ namespace SecretGame_New
 
             Door doorA = new Door(roomB, true, "FORWARD", "Old wooden door");
             Door doorBBackward = new Door(roomA, false, "BACKWARD", "Door BBackward");
-            Door doorBEast = new Door(roomC, false, "FORWARD", "Door BForward");
+            Door doorBEast = new Door(roomC, false, "FORWARD", "Black wooden door");
             Door doorCBackward = new Door(roomB, false, "BACKWARD", "Door CBackward");
-            Door doorCForward = new Door(finalRoom, false, "FORWARD", "Door CForward");
+            Door doorCForward = new Door(finalRoom, true, "FORWARD", "Exit");
             roomA.ListOfDoors.Add(doorA);
             roomB.ListOfDoors.Add(doorBBackward);
             roomB.ListOfDoors.Add(doorBEast);

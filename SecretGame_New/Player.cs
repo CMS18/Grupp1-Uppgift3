@@ -98,6 +98,7 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
+
             var query = PlayerBag.Where(i => i.ItemName.Equals(inputs[1]))
                                  .Select(d => d).ToList();
             if (query[0].ItemName == "KEY")
@@ -105,11 +106,21 @@ namespace SecretGame_New
                 PresentLocation.FindDoor(PresentLocation);
 
             }
-            if (query[0].ItemName != "KEY")
+            if (query[0].ItemName !="KEY")
             {
                 Console.WriteLine("Sorry you need to find the key first");
 
             }
+          
+
+        }
+        public void Give(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        {
+            string text = input;
+            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
+            string[] inputs = text.Split(' ');
+
+            PresentLocation.GiveCat(input);
         }
 
         public void Look(string input)

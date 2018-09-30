@@ -3,7 +3,7 @@
   <Class Name="SecretGame_New.Room">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAEAAAAAAAAIAAkAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
+      <HashCode>QAAEAAAAAEAAIAAkAAAAAAAEAAAAAAAAAAAAABAAAgA=</HashCode>
       <FileName>Room.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -14,17 +14,10 @@
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SecretGame_New.Game">
-    <Position X="2.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABgAAAiAAQAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>Game.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SecretGame_New.Door">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAgAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAgAAgAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Door.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +38,7 @@
   <Class Name="SecretGame_New.Player">
     <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEEYAAAAAABAAAAAAAAAAgAAAAIEgASAACACAAABAAA=</HashCode>
+      <HashCode>AEEQAAAAAABAEAAAAAAAAAAAAAIEAASACCECAAABAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -54,6 +47,13 @@
     <TypeIdentifier>
       <HashCode>AAAEAAQAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecretGame_New.Game">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAABAAAAgAgQAAAAAAAEAAAAAQgEAAAIAAABA=</HashCode>
+      <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
