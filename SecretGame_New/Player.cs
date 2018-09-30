@@ -75,6 +75,7 @@ namespace SecretGame_New
             {
                 Console.WriteLine("Sorry, there is no " + input + " in this room.");
             }
+
         }
         public void InspectItem(string input)
         {
@@ -112,15 +113,24 @@ namespace SecretGame_New
             string text = input;
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
-
-            if (InHand.ToString().Contains(inputs[1]))
+            Console.WriteLine("Use key on door");
+            var query = PlayerBag.Where(i => i.ItemName == input)
+                                 .Select(d => d).ToList();
+            if (query[0].ItemName =="KEY")
             {
-                if (inputs[1] == "KEY" && inputs[3] == "DOOR")
-                {
-                    Console.WriteLine("Door opened! You are now moving into the next room...");
-
-                }
+                Console.WriteLine("Doors in room:" + PresentLocation.ListOfDoors);
             }
+           // PresentLocation.ListOfDoors
+            //if (PlayerBag.Contains(input[1]).ToString())
+
+            //if (InHand.ToString().Contains(inputs[1]))
+            //{
+            //    if (inputs[1] == "KEY" && inputs[3] == "DOOR")
+            //    {
+            //        Console.WriteLine("Door opened! You are now moving into the next room...");
+
+            //    }
+            //}
 
             throw new NotImplementedException();
         }
