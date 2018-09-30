@@ -134,16 +134,18 @@ namespace SecretGame_New
             Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
             PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
-        public void EnterNewRoom()
-        {
-            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
-                   .Select(i => i).ToList();
-            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
-                                                   .Select(d => d).ToList();
-            PresentLocation = query[0].LeadsTo;
-            Console.WriteLine(query[0].LeadsTo.RoomName);
-            Console.WriteLine((query[0].LeadsTo.RoomDescription));
-        }
+
+       // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
+        //public void EnterNewRoom()
+        //{
+        //    var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
+        //           .Select(i => i).ToList();
+        //    var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
+        //                                           .Select(d => d).ToList();
+        //    PresentLocation = query[0].LeadsTo;
+        //    Console.WriteLine(query[0].LeadsTo.RoomName);
+        //    Console.WriteLine((query[0].LeadsTo.RoomDescription));
+        //}
 
 
     }
