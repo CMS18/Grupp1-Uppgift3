@@ -54,10 +54,7 @@ namespace SecretGame_New
             }
             else
             {
-                PresentLocation = query[0].LeadsTo;
-                Console.WriteLine(query[0].LeadsTo.RoomName);
-                Console.WriteLine(query[0].LeadsTo.RoomDescription);
-                Console.WriteLine(query[0].LeadsTo.RoomInventory);
+                EnterNewRoom(input);
             }
         }
 
@@ -116,7 +113,7 @@ namespace SecretGame_New
 
             var query = PlayerBag.Where(i => i.ItemName.Equals(inputs[1]))
                                  .Select(d => d).ToList();
-            if (query[0].ItemName =="KEY")
+            if (query[0].ItemName == "KEY")
             {
                 PresentLocation.FindDoor(PresentLocation);
                 
@@ -154,21 +151,31 @@ namespace SecretGame_New
 
         public void Look(string input)
         {
-            Console.WriteLine(PresentLocation.RoomDescription); //visar aktuell rumsbeskrivning
-            PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
+            PresentLocation.PrintDescription(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
 
-        // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
-        //public void EnterNewRoom()
-        //{
-        //    var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
-        //           .Select(i => i).ToList();
-        //    var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
-        //                                           .Select(d => d).ToList();
-        //    PresentLocation = query[0].LeadsTo;
-        //    Console.WriteLine(query[0].LeadsTo.RoomName);
-        //    Console.WriteLine((query[0].LeadsTo.RoomDescription));
-        //}
+        public void EnterNewRoom(string input)
+        {
+            string text = input;
+            string[] inputs = text.Split(' ');
+            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")
+                               .Select(i => i).ToList();
+
+            var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
+                                                   .Select(d => d).ToList();
+            //var query2 = PresentLocation.ListOfDoors.Where(d => d.GameOver == true)
+            //                                       .Select(d => d).ToList();
+            //if (query2[0].GameOver == true)
+            //{
+            //    PresentLocation = query[0].LeadsTo;
+            //    Alive = false;
+            //}
+
+            PresentLocation = query[0].LeadsTo;
+            Console.WriteLine(query[0].LeadsTo.RoomName);
+            PresentLocation.PrintDescription(PresentLocation);
+
+        }
 
 
     }
