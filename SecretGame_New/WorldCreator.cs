@@ -33,13 +33,13 @@ namespace SecretGame_New
             world.ListOfRooms.Add(roomC);
             world.ListOfRooms.Add(finalRoom);
 
-            Item map = new Item("An old map of the rooms in this enormous house", "map");
-            Item key = new Item("A big golden key", "key");
-            Item apple = new Item("A tasty red apple", "apple");
-            Item knife = new Item("A rusty but sharp knife", "knife");
-            Item hammer = new Item("Biggest tool ever seen", "hammer");
-            Item toy = new Item("An old fashioned doll", "plastic toy");
-            Item cat = new Item("A black cat", "cat");
+            Item map = new Item("An old map of the rooms in this enormous house", "MAP");
+            Item key = new Item("A big golden key", "KEY");
+            Item apple = new Item("A tasty red apple", "APPLE");
+            Item knife = new Item("A rusty but sharp knife", "KNIFE");
+            Item hammer = new Item("Biggest tool ever seen", "HAMMER");
+            Item toy = new Item("An old fashioned doll", "PLASTIC TOY");
+            Item cat = new Item("A black cat", "CAT");
             roomA.RoomInventory.Add(key);
             roomA.RoomInventory.Add(map);
             roomB.RoomInventory.Add(hammer);

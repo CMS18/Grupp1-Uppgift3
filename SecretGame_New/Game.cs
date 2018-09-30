@@ -18,8 +18,9 @@ namespace SecretGame_New
             Console.WriteLine("Welcome to Text Adventure, " +
                               "prepare yourself for a challenging task... " +
                               "\nPlease type in your Players name: ");
-            string nameInput = Console.ReadLine();
-            Console.WriteLine("Welcome " + nameInput + "! Your challenge takes place in a big house that is set on fire." +
+            World.Player.PlayerName = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Welcome " + World.Player.PlayerName + "! Your challenge takes place in a big house that is set on fire." +
                 "You are carrying an empty bag.");
             World.Player.Look("LOOK");
             do
@@ -97,17 +98,17 @@ namespace SecretGame_New
             string text = userInput.ToUpper();
             string[] inputs = text.Split(' ');
 
-            if (inputs.Length < 2)
+            if (inputs.Length == 1)
             {
                 OneCommand(userInput);
                 GiveCommand();
             }
 
-            if (inputs.Length > 2)
+            if (inputs.Length == 4)
             {
                 ThreeCommands(userInput);
-            }
-
+                GiveCommand();
+            }        
         }
 
         private void ThreeCommands(string input)
@@ -252,30 +253,36 @@ namespace SecretGame_New
                     break;
                 }
 
-                var query2 = inputs.Where(x => x == "DROP")
-                             .Select(x => x).ToList();
-
-                var query3 = inputs.Where(x => x == "TAKE")
-                             .Select(x => x).ToList();
-
-                var query4 = inputs.Where(x => x == "INSPECT")
-                             .Select(x => x).ToList();
-
-                //  if (query[0].ToString() == "INSPECT")
-                {
-                    World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
-                }
-
-                var query5 = inputs.Where(x => x == "USE")
-                             .Select(x => x).ToList();
-
-                if (query5[0].ToString() == "USE")
+                if(inputs[0].ToString() == "USE")
                 {
                     World.Player.Use(userInput);
+                    command = false;
+                    break;
                 }
-                var query6 = inputs.Where(x => x == "MOVE")
+                //var query2 = inputs.Where(x => x == "DROP")
+                //             .Select(x => x).ToList();
 
-                             .Select(x => x).ToList();
+                //var query3 = inputs.Where(x => x == "TAKE")
+                //             .Select(x => x).ToList();
+
+                //var query4 = inputs.Where(x => x == "INSPECT")
+                //             .Select(x => x).ToList();
+
+                ////  if (query[0].ToString() == "INSPECT")
+                //{
+                //    World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
+                //}
+
+                //var query5 = inputs.Where(x => x == "USE")
+                //             .Select(x => x).ToList();
+
+                //if (query5[0].ToString() == "USE")
+                //{
+                //    World.Player.Use(userInput);
+                //}
+                //var query6 = inputs.Where(x => x == "MOVE")
+
+                //             .Select(x => x).ToList();
             }
         }
 
