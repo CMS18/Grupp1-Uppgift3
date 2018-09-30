@@ -10,8 +10,8 @@ namespace SecretGame_New
     public class Game
     {
         public World World { get; set; }
-        bool invalidInput = true;
-        string userInput;
+        bool invalidInput = true;  
+        string userInput;    
 
         public void Play()
         {
@@ -58,7 +58,6 @@ namespace SecretGame_New
             {
                 OneCommand(input);
             }
-
         }
 
         private void OneCommand(string input)
@@ -69,7 +68,9 @@ namespace SecretGame_New
             switch (value)
             {
                 case "HELP":
-                    Console.WriteLine("As a command you can use: \n MOVE EAST/WEST, GRAB ITEM, USE ITEM, INSPECT ITEM, DROP ITEM, TAKE ITEM,LOOK ");
+                    Console.WriteLine("As a command you can use: " +
+                        "\n MOVE EAST/WEST, GRAB ITEM, USE ITEM, " +
+                        "INSPECT ITEM, DROP ITEM, TAKE ITEM, LOOK ");
                     break;
 
                 case "QUITE":
@@ -87,8 +88,6 @@ namespace SecretGame_New
             {
                 Console.WriteLine(@"Invalid command, try again. Enter ""help"" if you need guidance");
             }
-
-
         }
 
         private void GiveCommand()
@@ -122,6 +121,7 @@ namespace SecretGame_New
             validinputs.Add("APPLE");
             validinputs.Add("DOOR");
             validinputs.Add("ON");
+            validinputs.Add("CAT");
             List<string> validInput = new List<string>(); // lista för att spara de "rätta" orden
 
             foreach (string e in validinputs)
@@ -136,7 +136,7 @@ namespace SecretGame_New
                     Console.WriteLine("okey2");
                     validInput.Add(e);
                 }
-                if (e == inputs[2])
+                if (e == inputs[3])  //Ändrar från 2 till 3 här eftersom vi vill plocka ut sista ordet ur inputs
                 {
                     Console.WriteLine("okey3");
                     validInput.Add(e);
@@ -176,8 +176,8 @@ namespace SecretGame_New
 
             List<string> validinput = new List<string>(); // Lista med giltiga ord. 
             validinput.Add("MOVE");
-            validinput.Add("EAST");
-            validinput.Add("WEST");
+            validinput.Add("FORWARD");
+            validinput.Add("BACKWARD");
             validinput.Add("GRAB");
             validinput.Add("USE");
             validinput.Add("DROP");
@@ -188,9 +188,8 @@ namespace SecretGame_New
             validinput.Add("TAKE");
             validinput.Add("DOOR");
             validinput.Add("HAMMER");
-
-
-
+            validinput.Add("CAT");
+                                   
             foreach (string e in validinput)
             {
 
@@ -292,8 +291,3 @@ namespace SecretGame_New
     }
 
 }
-
-//Skapa instans av WorldCreator
-//anropa WorldCreator-metoden
-//låt WorldCreator-metoden returnera en referens till Player, hit till Game
-//Så blir Player är den enda som är synlig här

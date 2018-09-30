@@ -20,7 +20,6 @@ namespace SecretGame_New
             LeadsTo = leadsTO;
             Direction = direction;
             Locked = locked;
-
         }
     }
 }
