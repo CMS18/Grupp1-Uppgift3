@@ -10,8 +10,8 @@ namespace SecretGame_New
     public class Game
     {
         public World World { get; set; }
-        bool invalidInput = true;  
-        string userInput;    
+        bool invalidInput = true;
+        string userInput;
 
         public void Play()
         {
@@ -189,7 +189,7 @@ namespace SecretGame_New
             validinput.Add("DOOR");
             validinput.Add("HAMMER");
             validinput.Add("CAT");
-                                   
+
             foreach (string e in validinput)
             {
 
@@ -230,24 +230,21 @@ namespace SecretGame_New
 
             while (command)
             {
+                //var query = inputs.Where(x => x == "MOVE")
+                //                  .Select(x => x);
 
-                var query = inputs.Where(x => x == "MOVE")
-                            .Select(x => x).ToList();
-
-                if (query[0].ToString() == "MOVE")
+                if (inputs[0].ToString() == "MOVE")
                 {
-
                     World.Player.SearchDoor(userInput);
                     command = false;
                     break;
-
                 }
 
 
-                var query1 = inputs.Where(x => x == "GRAB")
-                            .Select(x => x).ToList();
+                //var query1 = inputs.Where(x => x == "GRAB")
+                //            .Select(x => x).ToList();
 
-                if (query1[0].ToString() == "GRAB")
+                if (inputs[0].ToString() == "GRAB")
                 {
                     World.Player.Grab(inputs[1]); //funkar med siffran 1, då item bör komma som nr 2 i input...
                     command = false;
@@ -263,7 +260,7 @@ namespace SecretGame_New
                 var query4 = inputs.Where(x => x == "INSPECT")
                              .Select(x => x).ToList();
 
-                if (query[0].ToString() == "INSPECT")
+                //  if (query[0].ToString() == "INSPECT")
                 {
                     World.Player.InspectItem(userInput);// METOD FÖR GRAB World.Player.SearchDoor(userInput);
                 }

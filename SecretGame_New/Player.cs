@@ -42,7 +42,7 @@ namespace SecretGame_New
                 if (answer == "YES")
                 {
                     Console.WriteLine("Then please use it on the door.");
-                    Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
+                    // Game.GiveCommand();     //anropa GiveCommand() - varför går det inte här?
 
                 }
                 else if (answer == "NO")
@@ -63,10 +63,11 @@ namespace SecretGame_New
         {
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName == input)
                                                      .Select(d => d).ToList();
-            if (query[0] != null)
+            if (input == "KEY")
             {
-                InHand = query[0]; //player tar upp item
-                Console.WriteLine("You grab the " + InHand.ItemName + ".");
+                //InHand = query[0]; //player tar upp item
+                //Console.WriteLine("You grab the " + InHand.ItemName + ".");
+                Console.WriteLine("Du grabbar nyckeln");
             }
             else
             {
@@ -101,14 +102,22 @@ namespace SecretGame_New
             InHand = null;
         }
 
-        public void ItemFromBagToRoom(string input) //på kommando "LEAVE"
+        public void ItemFromBagToRoom(string input) //på kommando "LEAVE" //ELLEN: här håller jag på och stökar
         {
-            var query = PlayerBag.Where(i => i.ItemName == input)
-                                         .Select(d => d).ToList();
+
+            //var query = PlayerBag.Where(i => i.ItemName == input)
+            //                             .Select(d => d).ToList();
 
             //lägger till item i Roominventory o tar bort från Playerbag
-            PlayerBag.Remove(query[0]);
-            PresentLocation.RoomInventory.Add(query[0]);
+            string text = input;
+            string[] inputs = text.Split(' ');
+            if (inputs[1] == "KEY")
+            {
+                Console.WriteLine("Du lämnar nyckeln i rummet");
+            }
+
+            //PlayerBag.Remove.ToString();
+            //PresentLocation.RoomInventory.Add(query[0]);
         }
 
         public int Use(string input/*presentLocation, item (userInput), item2 (userInput)*/)
@@ -135,7 +144,7 @@ namespace SecretGame_New
             PresentLocation.PrintRoomInventory(PresentLocation);  //anropar metod som skriver ut rummets alla föremål
         }
 
-       // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
+        // Ellen: jag håller på att plocka ut för att göra ny metod EnterNewRoom men ej klart än...
         //public void EnterNewRoom()
         //{
         //    var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
