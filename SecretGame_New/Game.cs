@@ -208,7 +208,6 @@ namespace SecretGame_New
             }
         }
 
-
         private void CheckValidWord(string input)
         {
             string text = input.ToUpper();
@@ -264,9 +263,7 @@ namespace SecretGame_New
             }
 
         }
-
         
-
         internal void SetUp()
         {
             //bygger världen

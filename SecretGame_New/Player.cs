@@ -140,16 +140,21 @@ namespace SecretGame_New
             string text = input;
             string[] inputs = text.Split(' ');
             var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")
-                    .Select(i => i).ToList();
+                               .Select(i => i).ToList();
 
             var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
                                                    .Select(d => d).ToList();
+            //var query2 = PresentLocation.ListOfDoors.Where(d => d.GameOver == true)
+            //                                       .Select(d => d).ToList();
+            //if (query2[0].GameOver == true)
+            //{
+            //    PresentLocation = query[0].LeadsTo;
+            //    Alive = false;
+            //}
 
             PresentLocation = query[0].LeadsTo;
             Console.WriteLine(query[0].LeadsTo.RoomName);
             PresentLocation.PrintDescription(PresentLocation);
-            //Console.WriteLine(query[0].LeadsTo.RoomDescription);
-            //Console.WriteLine(query[0].LeadsTo.RoomInventory); //funkar inte skriva ut lista
 
         }
 
