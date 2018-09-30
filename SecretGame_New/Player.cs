@@ -131,22 +131,7 @@ namespace SecretGame_New
             //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-            
-
-            var query = PresentLocation.RoomInventory.Where(i => i.ItemName.Equals(inputs[1]))
-                                 .Select(d => d).ToList();
-            var query1 = PlayerBag.Where(j => j.ItemName.Equals(inputs[2]))
-                                  .Select(f => f).ToList();
-            if (query[0].ItemName == "CAT" )
-            {
-                Console.WriteLine(" The cat  and toy");//PresentLocation.FindDoor(PresentLocation);
-
-            }
-            if(query1[0].ItemName == "TOY")
-            {
-                Console.WriteLine("toy");
-            }
-
+            PresentLocation.GiveCat(input);
         }
 
         public void Look(string input)

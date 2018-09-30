@@ -86,6 +86,12 @@ namespace SecretGame_New
                     command = false;
                     break;
                 }
+                if (inputs[0].ToString() == "GIVE")
+                {
+                    World.Player.Give(userInput);
+                    command = false;
+                    break;
+                }
             }
         }
         private void CheckOneWord(string input)
@@ -181,24 +187,7 @@ namespace SecretGame_New
                    // Console.WriteLine("okey3");
                     wordsToInterpret.Add(e);
                 }
-                //foreach (string f in validinputs) // GÅR INTE HA 3 foreach...!
-                //{
-                //    if (f == inputs[1])
-                //    {
-                //        Console.WriteLine("okey2");
-                //        validInput.Add(f);
-                //    }
-
-                //foreach (string g in validinputs)
-                //    {
-                //         if (g == inputs[2])
-                //         {
-                //         Console.WriteLine("okey3");
-                //         validInput.Add(g);
-                //         }
-
-                //    }
-                //}
+           
             }
             if (wordsToInterpret.Count <= 3)
             {
