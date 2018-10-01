@@ -33,6 +33,7 @@ namespace SecretGame_New
 
         public void PrintDescription(Room room)
         {
+            Console.WriteLine(RoomName);
             Console.WriteLine(RoomDescription);
             Console.WriteLine("\nThe items you can see in this room are: ");
             foreach (Item item in RoomInventory)
@@ -64,16 +65,15 @@ namespace SecretGame_New
                 Console.WriteLine("Door unlocked.");
             }
         }
-        public void GiveCat(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        public void GiveCat(string input)
         {
             string text = input;
-            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
             if (inputs.Contains("CAT") && inputs.Contains("TOY"))
             {
                 Console.WriteLine("The toy worked. The cat lets you pick it up. " +
-                    inputs[1]+" taken.");//PresentLocation.FindDoor(PresentLocation);
+                    inputs[1]+" taken.");
                 foreach (Door door in ListOfDoors)
                 {
                     if (door.DoorName == "Exit")

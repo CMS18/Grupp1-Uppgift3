@@ -45,15 +45,11 @@ namespace SecretGame_New
         public void CheckCommand(string userInput)
         {
             string text = userInput;
-            //char[] separator = new char [] { (' ') };
             string[] inputs = text.Split(' '); //separator, StringSplitOptions.RemoveEmptyEntries);
             bool command = true;
 
             while (command)
             {
-                //var query = inputs.Where(x => x == "MOVE")
-                //                  .Select(x => x);
-
                 if (inputs[0].ToString() == "MOVE")
                 {
                     World.Player.SearchDoor(userInput);
@@ -106,7 +102,6 @@ namespace SecretGame_New
         private void CheckOneWord(string input)
         {
             string text = input.ToUpper();
-            //char[] separator = new char[] { (' ') };
             string[] inputs = text.Split(' '); //(separator, StringSplitOptions.RemoveEmptyEntries);
 
             if (input.Length < 2)
@@ -143,6 +138,7 @@ namespace SecretGame_New
             if (input != "HELP" && input != "QUIT" && input != "LOOK")
             {
                 Console.WriteLine(@"Invalid command, try again. Enter ""help"" if you need guidance");
+                GiveCommand();
             }
         }
 
@@ -208,7 +204,6 @@ namespace SecretGame_New
         private void CheckValidWord(string input)
         {
             string text = input.ToUpper();
-            //char[] separator = new char[] { (' ') };
             string[] inputs = text.Split(' '); //(separator, StringSplitOptions.RemoveEmptyEntries);
             List<string> validInputs = new List<string>();
 
@@ -233,14 +228,12 @@ namespace SecretGame_New
 
                 if (e == inputs[0])
                 {
-                    //Console.WriteLine("Okey");
                     validInputs.Add(e);
 
                     foreach (string f in validinput)
                     {
-                         if (f == inputs[1])   //varför hamnar man här, när man skriver LOOK? Kollar vi inte OneWord först?
+                        if (f == inputs[1])
                         {
-                            //Console.WriteLine("okey2");
                             validInputs.Add(f);
                         }
                     }

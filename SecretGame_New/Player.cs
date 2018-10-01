@@ -15,7 +15,7 @@ namespace SecretGame_New
 
         public Player(string name, string description, Room room, bool alive)
         {
-            PlayerName = name; // ta bort Player från namn -- blir det tårta på tårta?
+            PlayerName = name;
             PlayerDescription = description;
             PresentLocation = room;
             Alive = alive;
@@ -26,10 +26,9 @@ namespace SecretGame_New
         {
             // gör om till lista för att kunna jämföra d.Direction med det andra ordet som användaren skrivit in. 
             string text = input;
-            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
-            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")  // kollar vad väderstrecket ligger i input-listan
+            var query1 = inputs.Where(i => i == "FORWARD" || i == "BACKWARD")
                                 .Select(i => i).ToList();
 
             var query = PresentLocation.ListOfDoors.Where(d => d.Direction == query1[0])
@@ -95,7 +94,6 @@ namespace SecretGame_New
         public void Use(string input)
         {
             string text = input;
-            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
 
@@ -114,10 +112,9 @@ namespace SecretGame_New
           
 
         }
-        public void Give(string input/*presentLocation, item (userInput), item2 (userInput)*/)
+        public void Give(string input)
         {
             string text = input;
-            //char[] separator = new char [] { (' ') }; // TODO: får inte till empty stringsoptions..
             string[] inputs = text.Split(' ');
 
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName.Equals(inputs[1]))
@@ -132,6 +129,7 @@ namespace SecretGame_New
         public void Look(string input)
         {
             PresentLocation.PrintDescription(PresentLocation); //skriver ut rummets beskrivning och föremål
+            PrintPlayerBag(PresentLocation);
         }
 
         public void EnterNewRoom(string input)
@@ -154,6 +152,14 @@ namespace SecretGame_New
             else
             {
                 PresentLocation.PrintDescription(PresentLocation);
+            }
+        }
+        public void PrintPlayerBag(Room presentLocation)
+        {
+            Console.WriteLine("\nIn your bag you have got the following items: ");
+            foreach (Item item in PlayerBag)
+            {
+                Console.WriteLine(item.ItemName);
             }
         }
 
