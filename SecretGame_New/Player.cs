@@ -119,10 +119,25 @@ namespace SecretGame_New
 
             var query = PresentLocation.RoomInventory.Where(i => i.ItemName.Equals(inputs[1]))
                                                      .Select(d => d).ToList();
-            if(query[0].ItemName == "CAT")
-            {
-                PresentLocation.GiveCat(input);
-            }
+         
+               
+                foreach (Item i in PlayerBag)
+                {
+                    if (i.ItemName == "TOY")
+                    {
+
+                        if (query[0].ItemName == "CAT")
+                        {
+                            PresentLocation.GiveCat(input);
+                            break;
+                        }
+                    }
+                }
+            
+            
+
+            
+           
            
         }
 
