@@ -21,7 +21,7 @@ namespace SecretGame_New
             World.Player.PlayerName = Console.ReadLine();
             Console.Clear();
             Console.WriteLine("Welcome " + World.Player.PlayerName + "!\nYour challenge takes place in a big house that is set on fire." +
-                " Is there someone who needs to be saved here? \nYou are carrying an empty bag. ");
+                " Is there someone inside who needs to be rescued? \nYou are carrying an empty bag. ");
             World.Player.Look("LOOK");
             do
             {
