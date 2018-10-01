@@ -19,7 +19,7 @@ namespace SecretGame_New
             World world = new World();
 
             Room roomA = new Room("hallway", "You stand at the entrance of a long hallway, " +
-                "increasingly filled with smoke, " +
+                "increasingly filled with smoke. " +
                 "At the end of the hallway there is an old wooden door. " +
                 "Can you find a key to unlock it? ");
             Room roomB = new Room("kitchen", "You are standing in a big and smokefilled kitchen. " +
@@ -53,7 +53,7 @@ namespace SecretGame_New
             Door doorCForward = new Door(finalRoom, true, "FORWARD", "Exit");
             roomA.ListOfDoors.Add(doorA);
             roomB.ListOfDoors.Add(doorBBackward);
-            roomB.ListOfDoors.Add(doorBEast);
+            roomB.ListOfDoors.Add(doorBForward);
             roomC.ListOfDoors.Add(doorCBackward);
             roomC.ListOfDoors.Add(doorCForward);
 

@@ -12,7 +12,6 @@ namespace SecretGame_New
         public Room LeadsTo { get; set; }
         public string Direction { get; set; }
         public bool Locked { get; set; }
-        public bool GameOver { get; set; }
 
         public Door(Room leadsTO, bool locked, string direction, string doorname)
         {
@@ -20,15 +19,6 @@ namespace SecretGame_New
             LeadsTo = leadsTO;
             Direction = direction;
             Locked = locked;
-        }
-        public Door(Room leadsTO, bool locked, string direction, string doorname, bool GameOver) //constructor för sista dörren
-
-        {
-            DoorName = doorname;
-            LeadsTo = leadsTO;
-            Direction = direction;
-            Locked = locked;
-            GameOver = false;
         }
       
     }
