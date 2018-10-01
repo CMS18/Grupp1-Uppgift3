@@ -97,6 +97,7 @@ namespace SecretGame_New
                 if (inputs[0].ToString() == "LOOK")
                 {
                     World.Player.Look("LOOK");
+                    GiveCommand();
                     command = false;
                     break;
                 }
@@ -135,6 +136,7 @@ namespace SecretGame_New
                 case "LOOK":
                     Console.WriteLine();
                     World.Player.Look(input);
+                    GiveCommand();
                     break;
             }
 
@@ -236,7 +238,7 @@ namespace SecretGame_New
 
                     foreach (string f in validinput)
                     {
-                        if (f == inputs[1])   //varför hamnar man här, när man skriver LOOK? Kollar vi inte OneWord först?
+                         if (f == inputs[1])   //varför hamnar man här, när man skriver LOOK? Kollar vi inte OneWord först?
                         {
                             //Console.WriteLine("okey2");
                             validInputs.Add(f);
