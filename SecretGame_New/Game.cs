@@ -28,8 +28,8 @@ namespace SecretGame_New
                 do
                 {
                     GiveCommand(); //Metod för input från spelaren. 
-
-                    CheckOneWord(userInput); //kollar om endast 1 ord i input
+                    Console.Clear();
+                    //CheckOneWord(userInput); //kollar om endast 1 ord i input
 
                     CheckValidWord(userInput); //Kolla om giltiga ord har angivits.
 
@@ -126,6 +126,7 @@ namespace SecretGame_New
                     Console.WriteLine("As a command you can use: " +
                         "\nMOVE FORWARD/BACKWARD, TAKE ITEM, USE ITEM, " +
                         "INSPECT ITEM, DROP ITEM, LOOK ");
+                    GiveCommand();
                     break;
 
                 case "QUIT":
@@ -143,7 +144,9 @@ namespace SecretGame_New
             if (input != "HELP" && input != "QUIT" && input != "LOOK")
             {
                 Console.WriteLine(@"Invalid command, try again. Enter ""help"" if you need guidance");
+                GiveCommand();
             }
+           
         }
 
         private void GiveCommand()
