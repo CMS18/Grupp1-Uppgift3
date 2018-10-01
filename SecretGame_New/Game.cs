@@ -28,7 +28,7 @@ namespace SecretGame_New
                 do
                 {
                     GiveCommand(); //Metod för input från spelaren. 
-
+                    Console.Clear();
                     CheckValidWord(userInput); //Kolla om giltiga ord har angivits.
 
                 } while (invalidInput); // kontrolloop för giltiga ord.
